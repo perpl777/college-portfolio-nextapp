@@ -4,6 +4,7 @@ import search from '@/public/bx-search 1.svg'
 
 
 const SearchInput = () => {
+    
     return (
         <div>
             <label className="border-b border-black flex gap-2 items-center w-64">

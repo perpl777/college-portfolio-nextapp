@@ -17,6 +17,7 @@
 }
 
 body {
+  height: 3000px;
 }
 
 body > * {
