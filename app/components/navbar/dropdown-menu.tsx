@@ -55,11 +55,15 @@ const DropdownMenu = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
+    
 
     return (
         <div>
-            {/* <Image src={menu} alt='menu' className='cursor-pointer mx-7' /> */}
+            <Image 
+                src={menu} 
+                alt='menu' 
+                className='cursor-pointer'
+                onClick={handleMouseEnter} />
 
             <div 
                 id="menu" 
@@ -68,10 +72,10 @@ const DropdownMenu = () => {
                 className='fixed z-10  top-0 left-0 right-0 box-border 
                 text-black backdrop-blur-sm bg-white/70 '>
                 <div role="button" className='flex align-text-bottom items-end py-3 border-b tracking-wide border-black/50'>
-                    <div onClick={handleClickBurger}>
+                    {/* <div onClick={handleClickBurger}>
                         <Image src={menu} alt='menu' className='cursor-pointer mx-7' />
-                    </div>
-                    <span className='menu-nav-elenemt pr-7'>Все работы</span>
+                    </div> */}
+                    <span className='menu-nav-elenemt px-7'>Все работы</span>
                     <span className='menu-nav-elenemt'>Все студенты</span>
 
                 </div>
