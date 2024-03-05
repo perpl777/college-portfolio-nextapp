@@ -19,6 +19,8 @@ const NavBar = () => {
         }); 
 
         gsap.from(".title-decor", { 
+            delay: 1,
+
             y: -300,
             opacity: 0, 
             duration: 1, 
