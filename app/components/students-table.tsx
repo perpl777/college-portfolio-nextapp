@@ -30,14 +30,12 @@ const StudentsTable = async () => {
             <table className="table table-lg w-9/12 m-auto">
             <tbody> 
                 {students.map(student => 
-                    <Link href='/portfolio'>
-                        <tr className='cursor-pointer'> 
-                            <th>{student.id}</th>
-                            <td>{student.name}</td> 
-                            <td>{student.group}</td> 
-                            <td>{student.year}</td> 
-                        </tr> 
-                    </Link>
+                    <tr> 
+                        <th> {student.id} </th>
+                        <td> <Link href='/portfolio'> {student.name} </Link> </td> 
+                        <td> {student.group} </td> 
+                        <td> {student.year} </td> 
+                    </tr> 
                 )} 
             </tbody> 
             </table>

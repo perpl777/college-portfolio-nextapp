@@ -10,6 +10,7 @@ import Link from 'next/link'
 import menu from '@/public/bx-menu 2.svg'
 
 
+
 type childMenu = ['Все студенты', 'Все работы'] | ['Все студенты']
 interface MenuProps {
     childMenu: childMenu

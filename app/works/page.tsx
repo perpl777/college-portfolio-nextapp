@@ -6,7 +6,7 @@ import NavBar from "../components/navbar/nav-bar";
 
 export default function Works() {
     return (
-        <div>
+        <div className='p-11'>
             <NavBar />
 
             <div className="pt-16 pb-12">
