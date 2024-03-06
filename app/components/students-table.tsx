@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 
@@ -28,13 +29,15 @@ const StudentsTable = async () => {
         <div className="overflow-x-auto">
             <table className="table table-lg w-9/12 m-auto">
             <tbody> 
-                {students.map(student =>  
-                    <tr className='cursor-pointer'> 
-                        <th>{student.id}</th>
-                        <td>{student.name}</td> 
-                        <td>{student.group}</td> 
-                        <td>{student.year}</td> 
-                    </tr> 
+                {students.map(student => 
+                    <Link href='/portfolio'>
+                        <tr className='cursor-pointer'> 
+                            <th>{student.id}</th>
+                            <td>{student.name}</td> 
+                            <td>{student.group}</td> 
+                            <td>{student.year}</td> 
+                        </tr> 
+                    </Link>
                 )} 
             </tbody> 
             </table>

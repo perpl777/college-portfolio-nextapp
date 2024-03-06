@@ -1,11 +1,11 @@
 'use client'
 
-
 import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
 import title from '@/public/ПОРТФОЛИО.svg'
 import Menu from './menu'
+
 
 const NavBar = () => {
 
