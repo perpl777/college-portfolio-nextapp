@@ -1,11 +1,14 @@
 'use client'
+
+
 import React, { useEffect } from 'react'
 import Image from 'next/image'
-import title from '@/public/ПОРТФОЛИО.svg'
 import { gsap } from 'gsap'
-import DropdownMenu from './dropdown-menu'
+import title from '@/public/ПОРТФОЛИО.svg'
+import Menu from './menu'
 
 const NavBar = () => {
+
     useEffect(() => {
         gsap.from(".title", { 
             x: 300, 
@@ -36,7 +39,9 @@ const NavBar = () => {
 
     return (
         <div className='flex flex-col'>
-            <DropdownMenu />
+            
+            <Menu childMenu={['Все студенты', 'Все работы']} />
+
             <div className='title flex items-center justify-end z-1 relative pb-7 border-b border-black'>
                 <Image src={title} alt='title'/>
             </div>

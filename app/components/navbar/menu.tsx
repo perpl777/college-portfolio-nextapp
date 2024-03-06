@@ -1,16 +1,24 @@
 'use client'
-import React, { useEffect, useState } from 'react';
-import { gsap } from 'gsap'
 
+import React, { useEffect, useState } from 'react';
+import { FC } from "react"
+import { gsap } from 'gsap'
+import { usePathname } from 'next/navigation'
 
 import Image from 'next/image'
-import menu from '@/public/bx-menu 2.svg'
 import Link from 'next/link'
+import menu from '@/public/bx-menu 2.svg'
 
 
+type childMenu = ['Все студенты', 'Все работы'] | ['Все студенты']
+interface MenuProps {
+    childMenu: childMenu
+}
 
-const DropdownMenu = () => {
 
+const Menu:FC<MenuProps> = ({childMenu}) => {
+
+    const pathname = usePathname()
     const [menuOpen, setMenuOpen] = useState(false);
 
     const handleMouseEnter = () => {
@@ -75,8 +83,16 @@ const DropdownMenu = () => {
                     {/* <div onClick={handleClickBurger}>
                         <Image src={menu} alt='menu' className='cursor-pointer mx-7' />
                     </div> */}
-                    <span className='menu-nav-elenemt px-7'>Все работы</span>
-                    <span className='menu-nav-elenemt'>Все студенты</span>
+
+                    {childMenu.map((element, index) => (
+                        <Link key={index} 
+                            href={element === 'Все студенты' ? '/' : '/works'}>
+                                <span 
+                                    className={`menu-nav-elenemt mx-7 ${pathname === (element === 'Все студенты' ? '/' : '/works') ? 'border-black border-b-2' : ''}`}>
+                                    {element}
+                                </span>
+                        </Link>
+                    ))}
 
                 </div>
             </div>
@@ -84,4 +100,4 @@ const DropdownMenu = () => {
         </div>
     );
 };
-export default DropdownMenu
+export default Menu
