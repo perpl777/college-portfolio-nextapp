@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react'
-
+import menu from '@/public/bx-menu 2.svg'
+import Image from 'next/image'
+import AdminMenu from './components/menu'
 
 interface Props{
     children: ReactNode
@@ -7,8 +9,9 @@ interface Props{
 
 const Adminlayout = ({ children }: Props) => {
     return (
-        <div className='flex'>
-            
+        <div>
+            <AdminMenu />
+
             {children}
         </div>
     )

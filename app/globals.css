@@ -25,6 +25,11 @@ body > * {
   padding: 43px;
 }
 
+h2{
+  font-size: 3rem;
+}
+
+
 
 @layer utilities {
   .text-balance {
