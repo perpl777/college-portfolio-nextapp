@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import StudentImg from '@/public/student.png';
 import Github from '@/public/contacts-icons/bxl-github 2.svg';
@@ -15,9 +16,9 @@ const StudentCard = () => {
             <div className="bg-gray-50 flex flex-col flex-auto justify-between pb-9 pt-9 pl-5 pr-5">
 
                 <div className='flex justify-end gap-1'>
-                    <Image src={Behance} alt='behance'></Image>
-                    <Image src={Github} alt='github'></Image>
-                    <Image src={Vk} alt='vk'></Image>
+                    <Link href={'#'}><Image src={Behance} alt='behance'></Image></Link>
+                    <Link href={'#'}><Image src={Github} alt='github'></Image></Link>
+                    <Link href={'#'}><Image src={Vk} alt='vk'></Image></Link>
                 </div>
 
                 <div>

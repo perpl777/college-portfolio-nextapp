@@ -14,14 +14,14 @@ interface PostProps {
 }   
 
 const Post:FC<PostProps> = ({title, subtitle, image, date, linkToDownload, linkToWatch}) => {
+
     return (
         <div className='flex flex-col w-11/12 pt-12 m-auto'>
+            
             <p className='font-semibold text-5xl mb-8'>{title}</p>
 
             <div className='flex flex-row flex-wrap gap-6'>
-                {image &&
-                    <Image src={image} alt='work-image'></Image>
-                }
+                {image && <Image src={image} alt='work-image'></Image>}
 
                 <div className='flex flex-col flex-wrap justify-between gap-8'>
                     {image ?
@@ -30,14 +30,25 @@ const Post:FC<PostProps> = ({title, subtitle, image, date, linkToDownload, linkT
                         <p className='w-7/12 font-normal text-sm opacity-70'>{subtitle}</p>
                     }
 
-                    <div className='flex flex-col gap-3'>
-                        <Link href={linkToDownload}>
-                            <button className='w-36 h-10 bg-black text-white text-xl'>скачать</button>
-                        </Link>
-                        <Link href={linkToWatch}>
-                            <button className='w-48 h-10 border border-black text-xl'>просмотреть</button>
-                        </Link>
-                    </div>
+                    {image ?
+                        <div className='flex flex-col gap-3'>
+                            <Link href={linkToDownload}>
+                                <button className='w-36 h-10 bg-black text-white text-xl'>скачать</button>
+                            </Link>
+                            <Link href={linkToWatch}>
+                                <button className='w-48 h-10 border border-black text-xl'>просмотреть</button>
+                            </Link>
+                        </div>
+                    :
+                        <div className='flex gap-3'>
+                            <Link href={linkToDownload}>
+                                <button className='w-36 h-10 bg-black text-white text-xl'>скачать</button>
+                            </Link>
+                            <Link href={linkToWatch}>
+                                <button className='w-48 h-10 border border-black text-xl'>просмотреть</button>
+                            </Link>
+                        </div>
+                    }
                 </div>
             </div>
 

@@ -14,7 +14,7 @@ export default function Portfolio() {
                 <div className="flex flex-col pt-20">
                     <StudentCard />
 
-                    <div className='flex justify-end pt-12 pb-28'>
+                    <div className='flex justify-end pt-14 pb-14'>
                         <AboutText/>
                     </div>
 
