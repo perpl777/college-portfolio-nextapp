@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { FC } from "react"
 import { gsap } from 'gsap'
 import { usePathname } from 'next/navigation'
-
 import Image from 'next/image'
 import Link from 'next/link'
 import menu from '@/public/bx-menu 2.svg'
@@ -49,7 +48,6 @@ const Menu:FC<MenuProps> = ({childMenu}) => {
 
             if (currentScrollTop > lastScrollTop || currentScrollTop == 0 ) {
                 gsap.to("#menu", { opacity: 0, y: -10, duration: 0.6, ease: "slow" });
-
             } else {
                 gsap.to("#menu", { opacity: 1, y: 0, duration: 0.6, ease: "slow" });
             }
@@ -64,7 +62,6 @@ const Menu:FC<MenuProps> = ({childMenu}) => {
         };
     }, []);
     
-
     return (
         <div>
             <Image 

@@ -17,12 +17,12 @@
 }
 
 /* body {
-} */
+  padding: 43px;
+}  */
 
 body > * {
   max-width: 1440px;
   margin: auto;
-  padding: 43px;
 }
 
 h2{

@@ -13,16 +13,10 @@ const StudentsTable = async () => {
         },
         {
             "id": 1,
-            "name": "Гребенюк Агата Александровна",
+            "name": "Пулотова Мадина Рустамовна",
             "group": "Информационные системы и программирование",
             "year": "3 курс"
         },
-        {
-            "id": 1,
-            "name": "Гребенюк Агата Александровна",
-            "group": "Графический дизайн",
-            "year": "3 курс"
-        }
     ]
 
     return (
@@ -30,14 +24,12 @@ const StudentsTable = async () => {
             <table className="table table-lg w-9/12 m-auto">
             <tbody> 
                 {students.map(student => 
-                    <Link href='/portfolio'>
-                        <tr className='cursor-pointer'> 
-                            <th>{student.id}</th>
-                            <td>{student.name}</td> 
-                            <td>{student.group}</td> 
-                            <td>{student.year}</td> 
-                        </tr> 
-                    </Link>
+                    <tr> 
+                        <th> {student.id} </th>
+                        <td> <Link href='/portfolio'> {student.name} </Link> </td> 
+                        <td> {student.group} </td> 
+                        <td> {student.year} </td> 
+                    </tr> 
                 )} 
             </tbody> 
             </table>
