@@ -18,37 +18,37 @@ interface MenuProps {
 const Menu:FC<MenuProps> = ({childMenu}) => {
 
     const pathname = usePathname()
-    const [menuOpen, setMenuOpen] = useState(false);
+    const [menuHide, setMenuHide] = useState(true);
 
   //--------- anim click appirance menu----------
     const handleMouseEnter = () => {
-        setMenuOpen(true);
+        setMenuHide(false);
         HandleMenuAppirance();
     };
     const handleMouseLeave = () => {
-        setMenuOpen(false);
+        setMenuHide(true);
         HandleMenuAppirance();
 
     };
     const HandleMenuAppirance = () => {
-
+        console.log("Menu open: ", menuHide)
         gsap.to(".menu-nav-elenemt", {
             duration: 1,
             stagger: 0.25,
-            opacity: menuOpen ? 0 : 1,
-            y: menuOpen ? -10 : 0,
+            opacity: menuHide ? 1 : 0,
+            y: menuHide ? 0 : -10,
             ease: "slow"
         });
         gsap.to("#menu", { 
-            opacity: menuOpen ? 0 : 1,
-            y: menuOpen ? -10 : 0,
             duration: 0.6, 
+            opacity: menuHide ? 1 : 0,
+            y: menuHide ? 0 : -10,
             ease: "slow" 
         });
     }
     const HandleBurgerClick = () => {
-        setMenuOpen(!menuOpen);
-
+        setMenuHide(!menuHide);
+        HandleMenuAppirance()
     }
 
     useEffect(() => {
@@ -57,26 +57,30 @@ const Menu:FC<MenuProps> = ({childMenu}) => {
         const handleScroll = () => {
             const currentScrollTop = window.scrollY || document.documentElement.scrollTop;
 
-            if (currentScrollTop > lastScrollTop || currentScrollTop == 0 ) {
+            if (currentScrollTop > lastScrollTop || currentScrollTop <= 0) {
+                // setMenuOpen(true);
+                // HandleMenuAppirance();
                 gsap.to("#menu", { opacity: 0, y: -10,  duration: 0.6, ease: "slow" });
-                gsap.to("#menu", { 
+                gsap.to(".menu-nav-elenemt", { 
                     opacity: 0,
                     y: -10,
-                    duration: 0.6, 
+                    duration: 1, 
                     ease: "slow" 
                 });
-                setMenuOpen(false);
+                setMenuHide(false);
 
             } else {
+                // setMenuOpen(false);
+                // HandleMenuAppirance();
+
                 gsap.to("#menu", { opacity: 1, y: 0, duration: 0.6, ease: "slow" });
-                gsap.to("#menu", { 
+                gsap.to(".menu-nav-elenemt", { 
                     opacity: 1,
                     y: 0,
-                    duration: 0.6, 
+                    duration: 1, 
                     ease: "slow" 
                 });
-                setMenuOpen(true);
-
+                setMenuHide(true);
             }
             lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
         };
