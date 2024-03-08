@@ -9,7 +9,7 @@ interface Props{
 
 const Adminlayout = ({ children }: Props) => {
     return (
-        <div>
+        <div className='p-6'>
             <AdminMenu />
 
             {children}
