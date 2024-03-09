@@ -17,10 +17,8 @@ export default function Portfolio() {
                     <div className='flex justify-end pt-14 pb-14'>
                         <AboutText/>
                     </div>
-
                 </div>
             </div>
-
             <BlockPosts />
         </div>
     );

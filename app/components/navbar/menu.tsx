@@ -92,14 +92,15 @@ const Menu:FC<MenuProps> = ({childMenu}) => {
     
     return (
         <div>
-  {/*-------------- Burger-menu ------------------*/}
+    { /*-------------- Burger-menu ------------------*/}
             <Image 
                 src={menu} 
                 alt='menu' 
                 className='cursor-pointer z-10'
-                onClick={HandleBurgerClick} />
+                onClick={HandleBurgerClick} 
+            />
 
-  {/*-------------- Full nav ------------------*/}
+    {/*-------------- Full nav ------------------*/}
             <div 
                 id="menu" 
                 onMouseEnter={handleMouseEnter}
@@ -108,17 +109,15 @@ const Menu:FC<MenuProps> = ({childMenu}) => {
                 className='fixed z-20 opacity-0 top-0 left-0 right-0 box-border 
                 text-black backdrop-blur-sm bg-white/70 '>
                 <div role="button" className='flex align-text-bottom items-end py-3 border-b tracking-wide border-black/50'>
-
                     {childMenu.map((element, index) => (
                         <Link key={index} 
                             href={element === 'Все студенты' ? '/' : '/works'}>
                                 <span 
-                                    className={`menu-nav-elenemt mx-7 ${pathname === (element === 'Все студенты' ? '/' : '/works') ? 'font-medium' : ''}`}>
-                                    {element}
+                                    className={`menu-nav-elenemt ml-12 hover:text-gray-400 ${pathname === (element === 'Все студенты' ? '/' : '/works') ? 'font-medium' : ''}`}>
+                                        {element}
                                 </span>
                         </Link>
                     ))}
-
                 </div>
             </div>
 

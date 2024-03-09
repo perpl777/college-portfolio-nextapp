@@ -10,7 +10,7 @@ export default function Home() {
     <div className='p-11'>
       <NavBar />
 
-      <div className="flex flex-wrap justify-between gap-10 pl-10 pr-10 pt-16 pb-12">
+      <div className="flex flex-wrap justify-between gap-10 pt-16 pb-12">
         <SearchInput />
         <Filter />
       </div>
