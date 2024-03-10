@@ -19,7 +19,7 @@ const StudentsTable = ({ sortedStudents }: { sortedStudents: Student[] }) => {
                     {sortedStudents.map(student =>
                         <tr className='student' key={student.id}>
                             <th>{student.id}</th>
-                            <td><Link href='/portfolio'>{student.name}</Link></td>
+                            <td><a href='/portfolio'>{student.name}</a></td>
                             <td>{student.group}</td>
                             <td>{student.year}</td>
                         </tr>

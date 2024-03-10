@@ -4,7 +4,7 @@ import { gsap } from 'gsap'
 import SearchInput from '@/app/components/students-page/search-input'
 import StudentsTable from './table'
 import Loading from '@/app/loading'
-import useFilterStudents from '@/app/components/students-page/use-filter-student'
+import useFilterStudents from '@/app/components/students-page/filter-student'
 
 const StudentsPage = () => {
     const [searchQuery, setSearchQuery] = useState('')
