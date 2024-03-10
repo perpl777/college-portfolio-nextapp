@@ -1,25 +1,19 @@
 import React from 'react'
-import NavBar from "../components/navbar/nav-bar";
-import StudentCard from '../components/student-portfolio/student-card';
-import AboutText from '../components/student-portfolio/about-text';
-import BlockPosts from '../components/student-portfolio/posts/block-posts';
+import StudentCard from '../components/portfolio-page/student-card';
+import AboutText from '../components/portfolio-page/about-text';
+import Posts from '../components/portfolio-page/posts/posts';
 
 
 export default function Portfolio() {
     return (
-        <div>
-            <div className='p-11'>
-                <NavBar />
-
-                <div className="flex flex-col pt-20">
-                    <StudentCard />
-
-                    <div className='flex justify-end pt-14 pb-14'>
-                        <AboutText/>
-                    </div>
-                </div>
+        <div className="flex flex-col pt-20">
+            <StudentCard />
+            
+            <div className='flex justify-end p-14'>
+                <AboutText/>
             </div>
-            <BlockPosts />
+
+            <Posts />
         </div>
     );
 }

@@ -10,10 +10,10 @@ import DonateheartIcon from '@/public/sidebar-icons/bxs-donate-heart 1.svg'
 
 const Sidebar = () => {
     return (
-        <div className="dropdown dropdown-left ">
+        <div className="dropdown dropdown-left">
             <div tabIndex={0} 
                 role="button" 
-                className="flex flex-col items-center w-20 pt-6 pb-6 gap-8 border-b border-l border-black">
+                className="flex flex-col items-center w-20 py-6 gap-8 border-b border-l border-black">
                     <button> <Image src={WorkIcon} alt="WorkIcon" /> </button>
                     <button> <Image src={TrophyIcon} alt="TrophyIcon" /> </button>
                     <button> <Image src={GraduationIcon} alt="GraduationIcon" /> </button>
