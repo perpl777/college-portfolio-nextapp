@@ -38,11 +38,13 @@ const NavBar = () => {
     }, []);
 
     return (
-        <div className='flex flex-col'>
+        <div className='flex flex-col pt-11 px-11'>
+            
             <div className='flex justify-between py-7 border-b border-black'>
                 <Menu childMenu={['Все студенты', 'Все работы']} />
                 <Image src={title} alt='title' className='title z-1 relative'/>
             </div> 
+
             <div className='flex justify-end mt-4 mr-20 gap-40'>
                 <p className='title-decor text-gray-400 w-40'>
                     Новосибирский

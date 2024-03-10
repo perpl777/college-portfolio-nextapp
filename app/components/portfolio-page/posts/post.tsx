@@ -13,18 +13,19 @@ interface PostProps {
     linkToWatch: string
 }   
 
+
 const Post:FC<PostProps> = ({title, subtitle, image, date, linkToDownload, linkToWatch}) => {
 
     return (
-        <div className='flex flex-col w-11/12 pt-12 pb-12 m-auto'>
-            <p className='font-semibold text-5xl mb-8'>{title}</p>
+        <div className='flex flex-col px-20 pt-12 pb-6'>
+            <p className='font-semibold text-5xl'>{title}</p>
 
-            <div className='flex flex-row flex-wrap gap-6'>
+            <div className='flex flex-row flex-wrap mt-8 gap-6'>
                 {image && <Image src={image} alt='work-image'></Image>}
 
                 <div className='flex flex-col flex-wrap justify-between gap-8'>
                     {image ?
-                        <p className='w-80 font-normal text-sm opacity-70'>{subtitle}</p>
+                        <p className='w-96 font-normal text-sm opacity-70'>{subtitle}</p>
                     :
                         <p className='w-7/12 font-normal text-sm opacity-70'>{subtitle}</p>
                     }

@@ -13,7 +13,7 @@ const StudentCard = () => {
             
             <Image src={StudentImg} alt="student"/>
 
-            <div className="bg-gray-50 flex flex-col flex-auto justify-between pb-9 pt-9 pl-5 pr-5">
+            <div className="bg-gray-50 flex flex-col flex-auto justify-between py-9 px-5">
 
                 <div className='flex justify-end gap-1'>
                     <Link href={'#'}><Image src={Behance} alt='behance'></Image></Link>

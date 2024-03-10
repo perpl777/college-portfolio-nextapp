@@ -4,11 +4,11 @@ import Post from './post'
 import ImageWork from '@/public/Rectangle 3-1.png'
 
 
-const BlockPosts = () => {
+const Posts = () => {
+
     return (
         <div className='flex justify-between'>
-
-            <div className='flex flex-col border-t border-black gap-10'>
+            <div className='flex flex-col border-t border-black'>
                 <Post 
                     title='Иллюстрация к книге Маяк'
                     subtitle='Представляет собой рисунок, отражающий тему одиночества. 
@@ -37,4 +37,4 @@ const BlockPosts = () => {
     )
 }
 
-export default BlockPosts
+export default Posts
