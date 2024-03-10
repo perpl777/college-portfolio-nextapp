@@ -22,16 +22,19 @@ const Menu:FC<MenuProps> = ({childMenu}) => {
 
   //--------- anim click appirance menu----------
     const handleMouseEnter = () => {
+        console.log("work handleMouseEnter")
         setMenuHide(false);
         HandleMenuAppirance();
     };
     const handleMouseLeave = () => {
+        console.log("work handleMouseLeave")
+
         setMenuHide(true);
         HandleMenuAppirance();
 
     };
     const HandleMenuAppirance = () => {
-        console.log("Menu open: ", menuHide)
+        console.log("Menu hide: ", menuHide)
         gsap.to(".menu-nav-elenemt", {
             duration: 1,
             stagger: 0.25,
@@ -47,7 +50,8 @@ const Menu:FC<MenuProps> = ({childMenu}) => {
         });
     }
     const HandleBurgerClick = () => {
-        setMenuHide(!menuHide);
+        console.log("work HandleBurgerClick")
+        // setMenuHide(!menuHide);
         HandleMenuAppirance()
     }
 
