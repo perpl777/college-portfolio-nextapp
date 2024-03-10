@@ -1,14 +1,39 @@
 'use client'
-import React, { Suspense, useEffect } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import SearchInput from '@/app/components/students-page/search-input'
 import StudentsTable from './table'
 import Loading from '@/app/loading'
-
+import useFilterStudents from '@/app/components/students-page/use-filter-student'
 
 const StudentsPage = () => {
-  //---------anim the appearance of elements----------
+    const [searchQuery, setSearchQuery] = useState('')
 
+    const students = [
+        {
+            "id": 1,
+            "name": "Гребенюк Агата Александровна",
+            "group": "Дизайн",
+            "year": "3 курс"
+        },
+        {
+            "id": 1,
+            "name": "Пулотова Мадина Рустамовна",
+            "group": "Информационные системы и программирование",
+            "year": "3 курс"
+        },
+        {
+            "id": 1,
+            "name": "Аверкина Ева Андреевна",
+            "group": "Издательское дело",
+            "year": "3 курс"
+        }
+    ]
+  //-----------search----------
+    const sortedStudents = useFilterStudents(students, searchQuery);
+
+
+  //---------anim the appearance of elements----------
     useEffect(() => {
         gsap.from("h2", { 
             x: -300, 
@@ -29,7 +54,7 @@ const StudentsPage = () => {
     <section className='mt-20 w-full p-43'>
 
         <div className='flex items-stretch' style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <SearchInput />
+            <SearchInput setSearchQuery={setSearchQuery}/>
             <div>
                 <button className='leading-3 font-medium m-3 p-1 rounded-sm border tab-border-2 border-black'>
                     +
@@ -41,7 +66,7 @@ const StudentsPage = () => {
 
         <div className='mt-7'>
             <Suspense fallback={<Loading />}>
-                <StudentsTable />
+                <StudentsTable sortedStudents={sortedStudents}/>
             </Suspense>
         </div>
 

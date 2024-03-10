@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { gsap } from 'gsap'
 
 
 interface Student {
@@ -10,12 +11,13 @@ interface Student {
 
 
 const StudentsTable = ({ sortedStudents }: { sortedStudents: Student[] }) => {
+
     return (
         <div className='overflow-x-auto'>
             <table className="table table-lg w-9/12 m-auto">
                 <tbody>
                     {sortedStudents.map(student =>
-                        <tr key={student.id}>
+                        <tr className='student' key={student.id}>
                             <th>{student.id}</th>
                             <td><Link href='/portfolio'>{student.name}</Link></td>
                             <td>{student.group}</td>
