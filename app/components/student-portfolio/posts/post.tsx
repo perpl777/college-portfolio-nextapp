@@ -16,8 +16,7 @@ interface PostProps {
 const Post:FC<PostProps> = ({title, subtitle, image, date, linkToDownload, linkToWatch}) => {
 
     return (
-        <div className='flex flex-col w-11/12 pt-12 m-auto'>
-            
+        <div className='flex flex-col w-11/12 pt-12 pb-12 m-auto'>
             <p className='font-semibold text-5xl mb-8'>{title}</p>
 
             <div className='flex flex-row flex-wrap gap-6'>

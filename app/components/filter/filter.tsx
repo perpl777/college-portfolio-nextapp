@@ -1,10 +1,12 @@
 'use client'
+
 import React from 'react'
 import Arrow from '@/public/bx-chevron-down 1.svg'
 import Image from 'next/image'
 import Checkbox from "./checkbox";
 import { useState } from 'react';
 import { gsap } from 'gsap';
+
 
 const Filter = () => {
 
@@ -19,6 +21,7 @@ const Filter = () => {
         "Издательское дело и реклама",
         "Изделия из бумаги и картона", 
     ]
+
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = () => {
@@ -32,7 +35,6 @@ const Filter = () => {
         }
     };
 
-
     return (
         <div className='flex flex-wrap items-center gap-7'>
             <details className="dropdown grid grid-cols-1 sm:grid-cols-3 gap-7">
@@ -45,10 +47,10 @@ const Filter = () => {
                 </summary>
 
                 <ul tabIndex={0} 
-                className="dropdown-content z-[1] menu bg-white rounded-lg text-base">
-                    {groups.map((group) => (
-                        <li><a>{group}</a></li>
-                    ))}
+                    className="dropdown-content z-[1] menu bg-white rounded-lg text-base">
+                        {groups.map((group) => (
+                            <li><a> {group} </a></li>
+                        ))}
                 </ul>
             </details>
 

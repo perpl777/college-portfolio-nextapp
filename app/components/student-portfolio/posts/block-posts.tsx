@@ -6,7 +6,7 @@ import ImageWork from '@/public/Rectangle 3-1.png'
 
 const BlockPosts = () => {
     return (
-        <div className='flex justify-between pb-11'>
+        <div className='flex justify-between'>
 
             <div className='flex flex-col border-t border-black gap-10'>
                 <Post 
