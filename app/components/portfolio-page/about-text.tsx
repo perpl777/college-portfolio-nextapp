@@ -1,13 +1,16 @@
 import React from 'react';
+import { FC } from "react"
 
-const AboutText = () => {
+
+interface AboutTextProps {
+    text: string
+}
+
+
+const AboutText:FC<AboutTextProps> =({ text }) => {
     return (
         <div className='w-4/6 font-light text-2xl'>
-                Моя страсть к творчеству и стремление к совершенству 
-                позволяют мне создавать уникальные и функциональные дизайн-решения. 
-                Я уверена в своих способностях и всегда готова воплотить в жизнь самые 
-                смелые идеи. Мой подход к работе основан на внимательном изучении 
-                потребностей заказчика и поиске индивидуальных решений
+                {text}
         </div>
     );
 };

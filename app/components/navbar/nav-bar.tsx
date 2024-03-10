@@ -38,7 +38,7 @@ const NavBar = () => {
     }, []);
 
     return (
-        <div className='flex flex-col pt-11 px-11'>
+        <div className='flex flex-col pt-11'>
             
             <div className='flex justify-between py-7 border-b border-black'>
                 <Menu childMenu={['Все студенты', 'Все работы']} />

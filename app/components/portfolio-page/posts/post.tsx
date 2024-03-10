@@ -1,13 +1,12 @@
 import React from 'react'
 import { FC } from "react"
 import Link from 'next/link'
-import Image, { StaticImageData } from 'next/image'
 
 
 interface PostProps {
 	title: string
 	subtitle: string
-    image?: StaticImageData
+    image?: string
     date: string
     linkToDownload: string
     linkToWatch: string
@@ -17,11 +16,11 @@ interface PostProps {
 const Post:FC<PostProps> = ({title, subtitle, image, date, linkToDownload, linkToWatch}) => {
 
     return (
-        <div className='flex flex-col px-20 pt-12 pb-6'>
+        <div className='flex flex-col w-11/12 m-auto pt-12 pb-6'>
             <p className='font-semibold text-5xl'>{title}</p>
 
             <div className='flex flex-row flex-wrap mt-8 gap-6'>
-                {image && <Image src={image} alt='work-image'></Image>}
+                {image && <img src={image} alt='post' width={396} height={336}/>}
 
                 <div className='flex flex-col flex-wrap justify-between gap-8'>
                     {image ?
