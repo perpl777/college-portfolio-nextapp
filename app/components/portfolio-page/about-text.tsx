@@ -9,7 +9,7 @@ interface AboutTextProps {
 
 const AboutText:FC<AboutTextProps> =({ text }) => {
     return (
-        <div className='w-4/6 font-light text-2xl'>
+        <div className='w-4/6 font-light text-xl'>
                 {text}
         </div>
     );

@@ -21,19 +21,15 @@ export default function Portfolio({params: {id}}: Props) {
     const aboutTextRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
     //---------anim in scroll----------
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: aboutTextRef.current,
-                start: 'top 80%',
-            }
-        });
 
+        gsap.registerPlugin(ScrollTrigger);
         gsap.from(".about-text", { 
             x: -300, 
             opacity: 0, 
             duration: 1, 
         }); 
         gsap.to(".about-text", { 
+            scrollTrigger: { trigger: ".square" },
             x: 0, 
             opacity: 1, 
             duration: 1, 

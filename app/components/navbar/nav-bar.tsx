@@ -11,27 +11,26 @@ const NavBar = () => {
 
     useEffect(() => {
         gsap.from(".title", { 
-            x: 300, 
+            x: 100, 
             opacity: 0, 
-            duration: 1, 
+            duration: 0.4, 
         }); 
         gsap.to(".title", { 
             x: 0, 
             opacity: 1, 
-            duration: 1, 
+            duration: 0.6, 
         }); 
 
         gsap.from(".title-decor", { 
-            delay: 1,
+            delay: 0.7,
 
-            y: -300,
+            x: -100,
             opacity: 0, 
             duration: 1, 
         }); 
         gsap.to(".title-decor", { 
             delay: 1,
-            y: 0,
-            stagger: 0.25,
+            x: 0,
             opacity: 1, 
             duration: 1, 
         }); 
@@ -45,18 +44,18 @@ const NavBar = () => {
                 <Image src={title} alt='title' className='title z-1 relative'/>
             </div> 
 
-            <div className='flex justify-end mt-4 mr-20 gap-40'>
-                <p className='title-decor text-gray-400 w-40'>
+            <div className='flex justify-end mt-4 mr-20 gap-36'>
+                <p className='title-decor text-gray-400 w-44 text-sm leading-6'>
                     Новосибирский
                     колледж
                     печати
                     и информационных технологий
                 </p>
-                <p className='title-decor text-gray-400 w-40'>
+                <p className='title-decor text-gray-400 w-40 text-sm leading-6'>
                     Новосибирский
                     колледж
                 </p>
-                <p className='title-decor text-gray-400 w-40'>
+                <p className='title-decor text-gray-400 w-44 text-sm leading-6'>
                     Новосибирский
                     колледж
                     печати
