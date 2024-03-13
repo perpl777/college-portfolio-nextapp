@@ -74,8 +74,7 @@ export default function Portfolio({params: {id}}: Props) {
                                 subtitle={post.subtitle}
                                 image={post.image}
                                 date={post.date}
-                                linkToDownload={post.linkToDownload}
-                                linkToWatch={post.linkToWatch}
+                                link={post.link}
                             />
                         )
                     ))}
