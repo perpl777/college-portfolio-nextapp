@@ -12,18 +12,26 @@ interface Student {
 const StudentsTable = ({ sortedStudents }: { sortedStudents: Student[] }) => {
     return (
         <div className='overflow-x-auto'>
-            <table className="table table-lg w-9/12 m-auto">
+            <table className="table table-lg m-auto">
+                <thead>
+                    <tr>
+                        <th className='border-b border-black pl-16 pr-0 '></th>
+                        <th className='border-b border-black pl-24 pr-0'>Студент</th>
+                        <th className='border-b border-black'>Специальность</th>
+                        <th className='border-b border-black'>Курс</th>
+                    </tr>
+                </thead>
                 <tbody>
                     {sortedStudents.map(student =>
                         <tr key={student.id}>
-                            <th>{student.id}</th>
-                            <td> 
+                            <th className='border-b border-black pl-16 pr-0'>{student.id}</th>
+                            <td className='border-b border-black pl-24 pr-0'> 
                                 <Link href={`/portfolio/${student.id}`}>
                                     {`${student.lastname} ${student.name} ${student.surname}`}
                                 </Link>
                             </td>
-                            <td>{student.group}</td>
-                            <td>{student.year} курс</td>
+                            <td className='border-b border-black'>{student.group}</td>
+                            <td className='border-b border-black'>{student.year}</td>
                         </tr>
                     )}
                 </tbody>

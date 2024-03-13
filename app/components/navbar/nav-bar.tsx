@@ -45,7 +45,7 @@ const NavBar = () => {
                 <Image src={title} alt='title' className='title z-1 relative'/>
             </div> 
 
-            <div className='flex justify-end mt-4 mr-20 gap-40'>
+            <div className='flex justify-end mt-4 mr-20 gap-40 text-xs tracking-widest'>
                 <p className='title-decor text-gray-400 w-40'>
                     Новосибирский
                     колледж
