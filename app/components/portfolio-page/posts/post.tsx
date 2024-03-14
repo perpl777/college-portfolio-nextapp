@@ -1,43 +1,58 @@
+'use client'
 import React from 'react'
 import { FC } from "react"
 import Link from 'next/link'
-import { linkSync } from 'fs'
+import { useState } from 'react'
 
 
 interface PostProps {
 	title: string
 	subtitle: string
     image?: string
-    date: string
     link: string
 }   
 
 
-const Post:FC<PostProps> = ({title, subtitle, image, date, link}) => {
+const Post:FC<PostProps> = ({title, subtitle, image, link}) => {
+
+    const [showFullText, setShowFullText] = useState(false);
+    const maxLength = 60; // Максимальная длина текста до сокрытия
+
+    const toggleText = () => {
+        setShowFullText(!showFullText);
+    };
+
 
     return (
-        <div className='flex flex-col w-10/12 m-auto pt-12 pb-8'>
-            <p className='font-semibold text-5xl'>{title}</p>
+        <div className='flex flex-col gap-8 pt-20 pb-8 w-96'>
+            <p className='font-bold text-5xl'>{title}</p>
 
-            <div className='flex flex-row flex-wrap mt-8 gap-8'>
-                {image && <img src={image} alt='post' width={396} height={336}/>}
+            {image && <img src={image} alt='post' width={396} height={336}/>}
 
-                <div className='flex flex-col flex-wrap justify-between gap-8'>
-                    {image ?
-                        <p className='w-96 font-normal text-sm opacity-70'>{subtitle}</p>
-                    :
-                        <p className='w-7/12 font-normal text-sm opacity-70'>{subtitle}</p>
-                    }
-                    <div className='flex items-end gap-24'>
-                        <Link href={link}>
-                            <button className='w-28 h-9 bg-black text-white font-medium text-base uppercase'>скачать</button>
-                        </Link>
-
-                        <p className='text-gray-600'>{date}</p>
-                    </div>
+            {image 
+            ? 
+                <div>
+                    {showFullText 
+                    ? (
+                        <p className='font-light text-sm opacity-70'>{subtitle}</p>
+                    ) : (
+                        <p className='font-light text-sm opacity-70'>
+                            {subtitle.length > maxLength ? `${subtitle.slice(0, maxLength)}...` : subtitle}
+                            {subtitle.length > maxLength && (
+                                <button onClick={toggleText}>
+                                    pаскрыть
+                                </button>
+                            )}
+                        </p>
+                    )}
                 </div>
-            </div>
+            :
+                <p className='font-light text-sm opacity-70'>{subtitle}</p>
+            }
 
+            <Link href={link}>
+                <button className='w-52 h-8 bg-gray-800 text-white font-medium text-sm uppercase'>скачать</button>
+            </Link>
         </div>
     )
 }

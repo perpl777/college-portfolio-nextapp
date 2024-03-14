@@ -7,7 +7,7 @@ import title from '@/public/ПОРТФОЛИО.svg'
 import Menu from './menu'
 
 
-const NavBar = () => {
+const Header = () => {
 
     useEffect(() => {
         gsap.from(".title", { 
@@ -40,7 +40,7 @@ const NavBar = () => {
         <div className='flex flex-col pt-11'>
             
             <div className='flex justify-between py-7 border-b border-black'>
-                <Menu childMenu={['Все студенты', 'Все работы']} />
+                <Menu />
                 <Image src={title} alt='title' className='title z-1 relative'/>
             </div> 
 
@@ -66,4 +66,4 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+export default Header

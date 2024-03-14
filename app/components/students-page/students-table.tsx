@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+
 interface Student {
     id: number;
     name: string;
@@ -8,6 +9,7 @@ interface Student {
     group: string;
     year: string;
 }
+
 
 const StudentsTable = ({ sortedStudents }: { sortedStudents: Student[] }) => {
     return (

@@ -1,38 +1,40 @@
 'use client'
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'; 
 import data from '@/app/data';
 import StudentCard from '../../components/portfolio-page/student-card';
 import AboutText from '../../components/portfolio-page/about-text';
 import Post from '@/app/components/portfolio-page/posts/post';
 import Sidebar from '@/app/components/portfolio-page/posts/sidebar';
-import NavBar from '@/app/components/header/header';
+import Header from '@/app/components/header/header';
 
 interface Props {
     params: {id: number};
 }
 
     //---------пока что не работает появление по скроллу----------
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Portfolio({params: {id}}: Props) {
     //---------anim the appearance of elements----------
-    // const aboutTextRef = useRef<HTMLDivElement>(null);
-    // useEffect(() => {
-    // //---------anim in scroll----------
+    const aboutTextRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+    //---------anim in scroll----------
 
-    //     gsap.registerPlugin(ScrollTrigger);
-    //     gsap.from(".about-text", { 
-    //         x: -300, 
-    //         opacity: 0, 
-    //         duration: 1, 
-    //     }); 
-    //     gsap.to(".about-text", { 
-    //         scrollTrigger: { trigger: ".square" },
-    //         x: 0, 
-    //         opacity: 1, 
-    //         duration: 1, 
-    //     }); 
-    // }, []);
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".about-text", { 
+            x: -300, 
+            opacity: 0, 
+            duration: 1, 
+        }); 
+        gsap.to(".about-text", { 
+            scrollTrigger: { trigger: ".square" },
+            x: 0, 
+            opacity: 1, 
+            duration: 1, 
+        }); 
+    }, []);
 
 
     const student = data.student.find((stud) => stud.id == id);
@@ -45,7 +47,7 @@ export default function Portfolio({params: {id}}: Props) {
     return (
         <div className="flex flex-col">
             <div className='px-11'>
-                <NavBar />
+                <Header />
             </div>
 
             <StudentCard 
@@ -62,8 +64,8 @@ export default function Portfolio({params: {id}}: Props) {
                 <AboutText text={student.about}/>
             </div>
 
-            <div className='flex justify-between border-t border-black'>
-                <div className='flex flex-col'>
+            <div className='flex justify-between'>
+                <div className='flex flex-wrap justify-between px-36 border-t border-black'>
                     {filteredPosts.map((post, index) => (
                         post && (
                             <Post
@@ -71,16 +73,14 @@ export default function Portfolio({params: {id}}: Props) {
                                 title={post.title}
                                 subtitle={post.subtitle}
                                 image={post.image}
-                                date={post.date}
                                 link={post.link}
                             />
                         )
                     ))}
                 </div>
-
+                
                 <Sidebar />
             </div>
         </div>
     );
 }
-

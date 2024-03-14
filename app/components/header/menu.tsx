@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import { FC } from "react"
 import { gsap } from 'gsap'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
@@ -9,15 +8,9 @@ import Link from 'next/link'
 import menu from '@/public/bx-menu 2.svg'
 
 
-type childMenu = ['Все студенты', 'Все работы'] | ['Все студенты']
-interface MenuProps {
-    childMenu: childMenu
-}
 
+const Menu = () => {
 
-const Menu:FC<MenuProps> = ({childMenu}) => {
-
-    const pathname = usePathname()
     const [menuHide, setMenuHide] = useState(true);
 
   //--------- anim click appirance menu----------
@@ -120,19 +113,15 @@ const Menu:FC<MenuProps> = ({childMenu}) => {
                 id="menu" 
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-
                 className='fixed z-20 opacity-0 top-0 left-0 right-0 box-border 
                 text-black backdrop-blur-sm bg-white/70 '>
+                    
                 <div role="button" className='flex align-text-bottom items-end py-3 border-b tracking-wide border-black/50'>
-                    {childMenu.map((element, index) => (
-                        <Link key={index} 
-                            href={element === 'Все студенты' ? '/' : '/works'}>
-                                <span 
-                                    className={`menu-nav-elenemt ml-12 hover:text-gray-400 ${pathname === (element === 'Все студенты' ? '/' : '/works') ? 'font-medium' : ''}`}>
-                                        {element}
-                                </span>
-                        </Link>
-                    ))}
+                    <Link href='/'>
+                        <span className={"menu-nav-elenemt ml-12 hover:text-gray-400"}>
+                            Все студенты
+                        </span>
+                    </Link>
                 </div>
             </div>
 

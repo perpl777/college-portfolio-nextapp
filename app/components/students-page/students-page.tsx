@@ -7,9 +7,19 @@ import Filter from '../filter/filter';
 import StudentsTable from './students-table';
 
 
+interface Student {
+    id: number;
+    name: string;
+    lastname: string;
+    surname: string;
+    group: string;
+    year: string;
+}
+
+
 const StudentsPage = () => {
     const [searchQuery, setSearchQuery] = useState('');
-    const [sortedStudents, setSortedStudents] = useState<YourStudentType[]>([]);
+    const [sortedStudents, setSortedStudents] = useState<Student[]>([]);
 
     useEffect(() => {
         let filteredStudents = data.student;
@@ -21,7 +31,6 @@ const StudentsPage = () => {
         setSortedStudents(filteredStudents);
     }, [searchQuery]);
 
-    
     return (
         <div>
             <div className="flex flex-wrap justify-between gap-10 pt-16 pb-12">
