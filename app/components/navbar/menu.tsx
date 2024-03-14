@@ -51,8 +51,20 @@ const Menu:FC<MenuProps> = ({childMenu}) => {
     }
     const HandleBurgerClick = () => {
         console.log("work HandleBurgerClick")
-        // setMenuHide(!menuHide);
-        HandleMenuAppirance()
+        setMenuHide(true);
+        gsap.to(".menu-nav-elenemt", {
+            duration: 1,
+            stagger: 0.25,
+            opacity: 1,
+            y: 0,
+            ease: "slow"
+        });
+        gsap.to("#menu", { 
+            duration: 0.6, 
+            opacity: 1,
+            y: 0,
+            ease: "slow" 
+        });
     }
 
     useEffect(() => {
