@@ -1,40 +1,38 @@
 'use client'
-import React, { useRef, useEffect } from 'react';
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'; 
+import React from 'react';
 import data from '@/app/data';
 import StudentCard from '../../components/portfolio-page/student-card';
 import AboutText from '../../components/portfolio-page/about-text';
 import Post from '@/app/components/portfolio-page/posts/post';
 import Sidebar from '@/app/components/portfolio-page/posts/sidebar';
-import NavBar from '@/app/components/navbar/nav-bar';
+import NavBar from '@/app/components/header/header';
 
 interface Props {
     params: {id: number};
 }
 
     //---------пока что не работает появление по скроллу----------
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 export default function Portfolio({params: {id}}: Props) {
     //---------anim the appearance of elements----------
-    const aboutTextRef = useRef<HTMLDivElement>(null);
-    useEffect(() => {
-    //---------anim in scroll----------
+    // const aboutTextRef = useRef<HTMLDivElement>(null);
+    // useEffect(() => {
+    // //---------anim in scroll----------
 
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from(".about-text", { 
-            x: -300, 
-            opacity: 0, 
-            duration: 1, 
-        }); 
-        gsap.to(".about-text", { 
-            scrollTrigger: { trigger: ".square" },
-            x: 0, 
-            opacity: 1, 
-            duration: 1, 
-        }); 
-    }, []);
+    //     gsap.registerPlugin(ScrollTrigger);
+    //     gsap.from(".about-text", { 
+    //         x: -300, 
+    //         opacity: 0, 
+    //         duration: 1, 
+    //     }); 
+    //     gsap.to(".about-text", { 
+    //         scrollTrigger: { trigger: ".square" },
+    //         x: 0, 
+    //         opacity: 1, 
+    //         duration: 1, 
+    //     }); 
+    // }, []);
 
 
     const student = data.student.find((stud) => stud.id == id);

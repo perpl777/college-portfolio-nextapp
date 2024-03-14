@@ -15,10 +15,10 @@ const StudentsTable = ({ sortedStudents }: { sortedStudents: Student[] }) => {
             <table className="table table-lg m-auto">
                 <thead>
                     <tr>
-                        <th className='border-b border-black pl-16 pr-0 '></th>
-                        <th className='border-b border-black pl-24 pr-0'>Студент</th>
-                        <th className='border-b border-black'>Специальность</th>
-                        <th className='border-b border-black'>Курс</th>
+                        <th className='border-b border-black w-14 pl-16 pr-0 '></th>
+                        <th className='border-b border-black pl-24 pr-0 text-gray-400 w-44 font-medium tracking-wider leading-6'>Студент</th>
+                        <th className='border-b border-black text-gray-400 w-44 font-medium tracking-wider leading-6'>Специальность</th>
+                        <th className='border-b border-black  text-gray-400 w-44 font-medium tracking-wider leading-6'>Курс</th>
                     </tr>
                 </thead>
                 <tbody>

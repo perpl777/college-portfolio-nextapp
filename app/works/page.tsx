@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import Loading from '../loading';
 import Filter from "../components/filter/filter";
 import WorksTable from '../components/works-page/works-table';
-import NavBar from '../components/navbar/nav-bar';
+import NavBar from '../components/header/header';
 
 
 export default function Works() {

@@ -7,7 +7,7 @@ import Image from 'next/image'
 import Checkbox from "./checkbox";
 import { useState } from 'react';
 import { gsap } from 'gsap';
-import NavBar from '../navbar/nav-bar';
+import NavBar from '../header/header';
 
 const Filter = () => {
 
