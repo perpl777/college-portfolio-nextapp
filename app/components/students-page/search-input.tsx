@@ -18,7 +18,8 @@ const SearchInput = ({ setSearchQuery }: Props) => {
                 <input type="text" 
                     className="grow outline-none" 
                     placeholder="Найти студента" 
-                    onChange={(e) => setSearchQuery(e.target.value)}/>
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
             </label>
         </div>
     )

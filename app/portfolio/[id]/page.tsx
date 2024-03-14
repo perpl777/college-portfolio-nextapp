@@ -64,8 +64,8 @@ export default function Portfolio({params: {id}}: Props) {
                 <AboutText text={student.about}/>
             </div>
 
-            <div className='flex justify-between border-t border-black'>
-                <div className='flex flex-col'>
+            <div className='flex justify-between'>
+                <div className='flex flex-wrap justify-between px-36 border-t border-black'>
                     {filteredPosts.map((post, index) => (
                         post && (
                             <Post
@@ -73,13 +73,12 @@ export default function Portfolio({params: {id}}: Props) {
                                 title={post.title}
                                 subtitle={post.subtitle}
                                 image={post.image}
-                                date={post.date}
                                 link={post.link}
                             />
                         )
                     ))}
                 </div>
-
+                
                 <Sidebar />
             </div>
         </div>
