@@ -17,8 +17,8 @@ const StudentsTable = ({ sortedStudents }: { sortedStudents: Student[] }) => {
             <table className="table table-lg m-auto">
                 <thead>
                     <tr>
-                        <th className='border-b border-black w-14 pl-16 pr-0 '></th>
-                        <th className='border-b border-black pl-24 pr-0 text-gray-400 w-44 font-medium tracking-wider leading-6'>Студент</th>
+                        <th className='border-b border-black w-14'></th>
+                        <th className='border-b border-black text-gray-400 w-44 font-medium tracking-wider leading-6'>Студент</th>
                         <th className='border-b border-black text-gray-400 w-44 font-medium tracking-wider leading-6'>Специальность</th>
                         <th className='border-b border-black  text-gray-400 w-44 font-medium tracking-wider leading-6'>Курс</th>
                     </tr>
@@ -26,8 +26,8 @@ const StudentsTable = ({ sortedStudents }: { sortedStudents: Student[] }) => {
                 <tbody>
                     {sortedStudents.map(student =>
                         <tr key={student.id}>
-                            <th className='border-b border-black pl-16 pr-0'>{student.id}</th>
-                            <td className='border-b border-black pl-24 pr-0'> 
+                            <th className='border-b border-black'>{student.id}</th>
+                            <td className='border-b border-black'> 
                                 <Link href={`/portfolio/${student.id}`}>
                                     {`${student.lastname} ${student.name} ${student.surname}`}
                                 </Link>

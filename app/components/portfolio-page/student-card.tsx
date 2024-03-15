@@ -25,7 +25,7 @@ interface StudentCardProps {
 
 const StudentCard:FC<StudentCardProps> =({ name, lastname, group, year, technologies, image, contacts }) => {
     return (
-        <div className='flex flex-row flex-wrap pt-20 px-11 m-auto w-11/12'>
+        <div className='flex flex-row flex-wrap pt-20 px-11'>
 
             <Image src={ImageStudent} alt="student"/>
 

@@ -1,14 +1,14 @@
 import React from 'react'
 import Image from 'next/image'
-import WorkIcon from '@/public/sidebar-icons/bxs-briefcase 1.svg'
-import TrophyIcon from '@/public/sidebar-icons/bxs-trophy (1) 1.svg'
-import GraduationIcon from '@/public/sidebar-icons/bxs-graduation 1.svg'
-import SchoolIcon from '@/public/sidebar-icons/bxs-school 1.svg'
-import TennisIcon from '@/public/sidebar-icons/bxs-tennis-ball (1) 1.svg'
-import DonateheartIcon from '@/public/sidebar-icons/bxs-donate-heart 1.svg'
+import WorkIcon from '@/public/menuposts-icons/bxs-briefcase 1.svg'
+import TrophyIcon from '@/public/menuposts-icons/bxs-trophy (1) 1.svg'
+import GraduationIcon from '@/public/menuposts-icons/bxs-graduation 1.svg'
+import SchoolIcon from '@/public/menuposts-icons/bxs-school 1.svg'
+import TennisIcon from '@/public/menuposts-icons/bxs-tennis-ball (1) 1.svg'
+import DonateheartIcon from '@/public/menuposts-icons/bxs-donate-heart 1.svg'
 
 
-const Sidebar = () => {
+const MenuPosts = () => {
     return (
         <div className="dropdown dropdown-left">
             <div tabIndex={0} 
@@ -25,4 +25,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar
+export default MenuPosts

@@ -6,7 +6,7 @@ import data from '@/app/data';
 import StudentCard from '../../components/portfolio-page/student-card';
 import AboutText from '../../components/portfolio-page/about-text';
 import Post from '@/app/components/portfolio-page/posts/post';
-import Sidebar from '@/app/components/portfolio-page/posts/sidebar';
+import MenuPosts from '@/app/components/portfolio-page/posts/post-menu';
 import Header from '@/app/components/header/header';
 
 interface Props {
@@ -14,41 +14,31 @@ interface Props {
 }
 
     //---------пока что не работает появление по скроллу----------
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Portfolio({params: {id}}: Props) {
     //---------anim the appearance of elements----------
-    // const aboutTextRef = useRef<HTMLDivElement>(null);
-    // useEffect(() => {
-    // //---------anim in scroll----------
+    const aboutTextRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+    //---------anim in scroll----------
 
-    //     gsap.registerPlugin(ScrollTrigger);
-    //     gsap.from(".about-text", { 
-    //         x: -300, 
-    //         opacity: 0, 
-    //         duration: 1, 
-    //     }); 
-    //     gsap.to(".about-text", { 
-    //         scrollTrigger: { trigger: ".square" },
-    //         x: 0, 
-    //         opacity: 1, 
-    //         duration: 1, 
-    //     }); 
-    // }, []);
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".about-text", { 
+            x: -300, 
+            opacity: 0, 
+            duration: 1, 
+        }); 
+        gsap.to(".about-text", { 
+            scrollTrigger: { trigger: ".square" },
+            x: 0, 
+            opacity: 1, 
+            duration: 1, 
+        }); 
+    }, []);
 
-    let firstHalf;
-    let secondHalf;
+
     const student = data.student.find((stud) => stud.id == id);
     const filteredPosts = data.work.filter((post) => post?.id_student == id);
-    console.log(filteredPosts.length)
-    const halfLength = Math.ceil(filteredPosts.length / 2);
-    if (filteredPosts.length % 2 == 0 ){
-        firstHalf = filteredPosts.slice(0, halfLength);
-        secondHalf = filteredPosts.slice(halfLength)
-    }else {
-        firstHalf = filteredPosts.slice(0, halfLength);
-        secondHalf = filteredPosts.slice(halfLength)
-    }
 
     if (!student) {
         return <div>Студент не найден</div>;
@@ -74,37 +64,10 @@ export default function Portfolio({params: {id}}: Props) {
                 <AboutText text={student.about}/>
             </div>
 
-            <div className='flex justify-between'>
-                <div className='flex flex-wrap flex-col px-36 border-t border-black'>
-                    {firstHalf.map((post, index) => ( 
-                        post && ( 
-                            <Post 
-                                key={index} 
-                                title={post.title} 
-                                subtitle={post.subtitle} 
-                                image={post.image} 
-                                link={post.link} 
-                            /> 
-                        ) 
-                    ))}
-                </div>
-                <div className='flex flex-wrap flex-col px-36 border-t border-black'>
-                    {secondHalf.map((post, index) => ( 
-                    post && ( 
-                        <Post 
-                            key={index} 
-                            title={post.title} 
-                            subtitle={post.subtitle} 
-                            image={post.image} 
-                            link={post.link} 
-                        /> 
-                    ) 
-                    ))}
-                </div>
-                
-                <Sidebar />
-            </div>
-            {/* {filteredPosts.map((post, index) => (
+            <div className='border-t border-black'>
+                <MenuPosts />
+                <div className='flex flex-wrap justify-between px-36'>
+                    {filteredPosts.map((post, index) => (
                         post && (
                             <Post
                                 key={index}
@@ -114,7 +77,9 @@ export default function Portfolio({params: {id}}: Props) {
                                 link={post.link}
                             />
                         )
-                    ))} */}
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }
