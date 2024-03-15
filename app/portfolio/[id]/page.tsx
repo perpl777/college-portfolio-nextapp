@@ -6,7 +6,7 @@ import data from '@/app/data';
 import StudentCard from '../../components/portfolio-page/student-card';
 import AboutText from '../../components/portfolio-page/about-text';
 import Post from '@/app/components/portfolio-page/posts/post';
-import Sidebar from '@/app/components/portfolio-page/posts/sidebar';
+import MenuPosts from '@/app/components/portfolio-page/posts/post-menu';
 import Header from '@/app/components/header/header';
 
 interface Props {
@@ -64,7 +64,8 @@ export default function Portfolio({params: {id}}: Props) {
                 <AboutText text={student.about}/>
             </div>
 
-            <div className='flex justify-between'>
+            <div>
+
                 <div className='flex flex-wrap justify-between px-36 border-t border-black'>
                     {filteredPosts.map((post, index) => (
                         post && (
@@ -78,8 +79,6 @@ export default function Portfolio({params: {id}}: Props) {
                         )
                     ))}
                 </div>
-                
-                <Sidebar />
             </div>
         </div>
     );
