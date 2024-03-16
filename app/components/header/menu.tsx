@@ -101,12 +101,14 @@ const Menu = () => {
     return (
         <div>
     { /*-------------- Burger-menu ------------------*/}
-            <Image 
-                src={menu} 
-                alt='menu' 
-                className='cursor-pointer z-10'
-                onClick={HandleBurgerClick} 
-            />
+            <div className='w-6 h-auto'>
+                <Image 
+                    src={menu} 
+                    alt='menu' 
+                    className='flex cursor-pointer z-10 w-6'
+                    onClick={HandleBurgerClick} 
+                />
+            </div>
 
     {/*-------------- Full nav ------------------*/}
             <div 

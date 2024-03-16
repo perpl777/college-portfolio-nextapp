@@ -16,7 +16,7 @@ const SearchInput = ({ setSearchQuery }: Props) => {
             <label className="border-b border-black flex gap-2 items-center w-64">
                 <Image src={search} className="ml-2" alt='title'/>
                 <input type="text" 
-                    className="grow outline-none" 
+                    className="grow outline-none p-2" 
                     placeholder="Найти студента" 
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />

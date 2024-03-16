@@ -1,4 +1,6 @@
+import Loading from '@/app/loading';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 
 interface Student {
@@ -17,25 +19,26 @@ const StudentsTable = ({ sortedStudents }: { sortedStudents: Student[] }) => {
             <table className="table table-lg m-auto">
                 <thead>
                     <tr>
-                        <th className='border-b border-black w-14'></th>
-                        <th className='border-b border-black text-gray-400 w-44 font-medium tracking-wider leading-6'>Студент</th>
-                        <th className='border-b border-black text-gray-400 w-44 font-medium tracking-wider leading-6'>Специальность</th>
-                        <th className='border-b border-black  text-gray-400 w-44 font-medium tracking-wider leading-6'>Курс</th>
+                        <th className='border-b border-black text-sm text-slate-400 w-6 font-normal leading-6'>Курс</th>
+                        <th className='border-b border-black text-sm text-slate-400 w-44 font-normal leading-6'>Студент</th>
+                        <th className='border-b border-black text-sm text-slate-400 w-44 font-normal leading-6'>Специальность</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {sortedStudents.map(student =>
-                        <tr key={student.id}>
-                            <th className='border-b border-black'>{student.id}</th>
-                            <td className='border-b border-black'> 
-                                <Link href={`/portfolio/${student.id}`}>
-                                    {`${student.lastname} ${student.name} ${student.surname}`}
-                                </Link>
-                            </td>
-                            <td className='border-b border-black'>{student.group}</td>
-                            <td className='border-b border-black'>{student.year}</td>
-                        </tr>
-                    )}
+                    <Suspense fallback={<Loading />}>
+
+                        {sortedStudents.map(student =>
+                            <tr key={student.id}>
+                                <td className='border-b border-black'>{student.year}</td>
+                                <td className='border-b border-black'> 
+                                    <Link href={`/portfolio/${student.id}`}>
+                                        {`${student.lastname} ${student.name} ${student.surname}`}
+                                    </Link>
+                                </td>
+                                <td className='border-b border-black'>{student.group}</td>
+                            </tr>
+                        )}
+                    </Suspense>
                 </tbody>
             </table>
         </div>

@@ -5,8 +5,6 @@ import React from 'react'
 import Arrow from '@/public/bx-chevron-down 1.svg'
 import Image from 'next/image'
 import Checkbox from "./checkbox";
-import { useState } from 'react';
-import { gsap } from 'gsap';
 
 const Filter = () => {
 
@@ -22,24 +20,13 @@ const Filter = () => {
         "Изделия из бумаги и картона", 
     ]
 
-    const [isOpen, setIsOpen] = useState(false);
 
-    const handleClick = () => {
-        setIsOpen(!isOpen);
-        const dropdownContent = document.querySelector('.dropdown-content');
 
-        if (isOpen) {
-            gsap.to(dropdownContent, { opacity: 0, y: -20, duration: 0.6, ease: 'power3.out' });
-        } else {
-            gsap.to(dropdownContent, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' });
-        }
-    };
 
     return (
-        <div className='flex flex-wrap justify-end gap-7'>
-            <details className="dropdown grid grid-cols-1 sm:grid-cols-3 gap-7">
+        <div className='flex items-start  gap-7 flex-wrap w-fit sm:flex-nowrap'>
+            <div className="dropdown grid grid-cols-1 sm:grid-cols-3 gap-7">
                 <summary tabIndex={0} 
-                    onClick={handleClick}
                     role="button" 
                     className="flex pl-2 py-2 gap-1 w-72 border border-gray-800 bg-white rounded-lg">
                         <Image src={Arrow} alt='arrow'></Image>
@@ -52,7 +39,7 @@ const Filter = () => {
                             <li><a> {group} </a></li>
                         ))}
                 </ul>
-            </details>
+            </div>
 
             <Checkbox />
         </div>
