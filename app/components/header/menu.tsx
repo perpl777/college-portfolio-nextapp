@@ -118,7 +118,7 @@ const Menu = () => {
                 className='fixed z-20 opacity-0 top-0 left-0 right-0 box-border 
                 text-black backdrop-blur-sm bg-white/70 '>
                     
-                <div role="button" className='flex align-text-bottom items-end py-3 border-b tracking-wide border-black/50'>
+                <div role="button" className='flex align-text-bottom items-end py-3 border-b tracking-wide border-black'>
                     <Link href='/'>
                         <span className={"menu-nav-elenemt ml-12 hover:text-gray-400"}>
                             Все студенты

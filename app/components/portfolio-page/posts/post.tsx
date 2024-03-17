@@ -24,7 +24,7 @@ const Post:FC<PostProps> = ({title, subtitle, image, link}) => {
 
 
     return (
-        <div className='flex flex-col gap-4 w-96 max-[500px]:w-72'>
+        <div className='flex flex-col gap-4 p-5 max-[500px]:w-72'>
             <p className='font-bold text-5xl max-[500px]:text-3xl'>{title}</p>
 
             {image && <img src={image} alt='post' width={396} height={336}/>}

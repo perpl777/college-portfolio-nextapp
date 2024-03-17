@@ -39,7 +39,7 @@ const Header = () => {
     return (
         <div className='flex flex-col'>
             
-            <div className='flex justify-between py-7 gap-5 border-b border-black'>
+            <div className='flex items-start justify-between py-7 gap-5 border-b border-black'>
             {/* <div className='flex justify-between py-7 gap-5 border-b border-black flex-col lg:flex-row'> */}
                 <Menu />
                 <div>
