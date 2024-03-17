@@ -33,7 +33,7 @@ const StudentsPage = () => {
 
     return (
         <div>
-            <div className="flex justify-between items-start gap-10 pt-16 pb-12 flex-wrap lg:flex-nowrap">
+            <div className="flex justify-between gap-8 pt-16 pb-12 flex-wrap lg:flex-nowrap">
                 <SearchInput setSearchQuery={setSearchQuery}/>
                 <Filter/>
             </div>

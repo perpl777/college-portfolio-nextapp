@@ -6,7 +6,7 @@ import NavBar from './components/header/header'
 
 export default function Home() {
   return (
-    <div className='px-11'>
+    <div>
       <NavBar />
 
       <Suspense fallback={<Loading />}>

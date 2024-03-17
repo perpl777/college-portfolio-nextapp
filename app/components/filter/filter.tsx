@@ -24,8 +24,8 @@ const Filter = () => {
 
 
     return (
-        <div className='flex items-start  gap-7 flex-wrap w-fit sm:flex-nowrap'>
-            <div className="dropdown grid grid-cols-1 sm:grid-cols-3 gap-7">
+        <div className='flex flex-wrap sm:flex-nowrap gap-6'>
+            <div className="dropdown grid-cols-1 sm:grid-cols-3">
                 <summary tabIndex={0} 
                     role="button" 
                     className="flex pl-2 py-2 gap-1 w-72 border border-gray-800 bg-white rounded-lg">
@@ -40,7 +40,6 @@ const Filter = () => {
                         ))}
                 </ul>
             </div>
-
             <Checkbox />
         </div>
     )
