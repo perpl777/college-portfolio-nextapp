@@ -48,7 +48,7 @@ const Header = () => {
             </div> 
 
             <div className='justify-end mt-4 mr-20 gap-36 hidden sm:flex'>
-                <p className='title-decor text-gray-400 w-44 text-xs leading-5 hidden md:block'>
+                <p className='title-decor text-gray-400 w-44 text-sm leading-5 hidden lg:block'>
                     Новосибирский
                     колледж
                     печати
