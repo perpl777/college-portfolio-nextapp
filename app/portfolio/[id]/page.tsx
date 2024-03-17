@@ -46,9 +46,7 @@ export default function Portfolio({params: {id}}: Props) {
 
     return (
         <div className="flex flex-col">
-            <div className='px-11'>
-                <Header />
-            </div>
+            <Header />
 
             <StudentCard 
                 name={student.name}
@@ -60,15 +58,21 @@ export default function Portfolio({params: {id}}: Props) {
                 contacts={student.contacts}
             />
             
-            <div className='flex justify-end p-16'>
+            <div className='flex justify-end py-20 max-[425px]:justify-center'>
                 <AboutText text={student.about}/>
             </div>
 
-            <div className='border-t border-black'>
-                <MenuPosts />
-                <div className='flex flex-wrap justify-between px-36'>
-                    {filteredPosts.map((post, index) => (
-                        post && (
+            <div className='flex flex-row'>
+                <div className='grow border-t border-l border-r border-black'>
+                    <MenuPosts />
+                </div>
+                <div className='shrink basis-1/4 border-b border-black max-md:flex-none'></div>
+            </div>
+
+            <div className='grid grid-cols-2 gap-y-32 py-24 max-[950px]:grid-cols-1'>
+                {filteredPosts.map((post, index) => (
+                    post && (
+                        <div className={`${index % 2 == 0 ? 'justify-self-start' : 'justify-self-end'} max-[500px]:justify-self-center`}>    
                             <Post
                                 key={index}
                                 title={post.title}
@@ -76,9 +80,9 @@ export default function Portfolio({params: {id}}: Props) {
                                 image={post.image}
                                 link={post.link}
                             />
-                        )
-                    ))}
-                </div>
+                        </div>
+                    )
+                ))}
             </div>
         </div>
     );
