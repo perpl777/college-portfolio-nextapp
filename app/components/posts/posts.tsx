@@ -1,5 +1,5 @@
 import React from 'react'
-import Post from '@/app/components/portfolio-page/posts/post';
+import Post from '@/app/components/posts/post';
 
 
 interface Post {
@@ -10,6 +10,7 @@ interface Post {
     image?: string;
     link: string;
 }
+
 
 const Posts: React.FC<{ posts: Post[] }> = ({posts}) => {
     return (

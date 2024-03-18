@@ -9,6 +9,12 @@ import Menu from './menu'
 
 const Header = () => {
 
+    const textsNav = [
+        {text: "Новосибирский колледж печати и информационных технологий"},
+        {text: "Новосибирский колледж"},
+        {text: "Новосибирский колледж печати и информационных технологий"},
+    ]
+
     useEffect(() => {
         gsap.from(".title", { 
             x: 100, 
@@ -38,32 +44,21 @@ const Header = () => {
 
     return (
         <div className='flex flex-col'>
-            
             <div className='flex items-start justify-between py-7 gap-5 border-b border-black'>
-            {/* <div className='flex justify-between py-7 gap-5 border-b border-black flex-col lg:flex-row'> */}
                 <Menu />
                 <div>
                     <Image src={title} alt='title' className='flex w-auto title z-1 resize relative'/>
                 </div>
             </div> 
 
-            <div className='justify-end mt-4 mr-20 gap-36 hidden sm:flex'>
-                <p className='title-decor text-gray-400 w-44 text-sm leading-5 hidden lg:block'>
-                    Новосибирский
-                    колледж
-                    печати
-                    и информационных технологий
-                </p>
-                <p className='title-decor text-gray-400 w-40 text-sm leading-5'>
-                    Новосибирский
-                    колледж
-                </p>
-                <p className='title-decor text-gray-400 w-44 text-sm leading-5'>
-                    Новосибирский
-                    колледж
-                    печати
-                    и информационных технологий
-                </p>
+            <div className='justify-end mt-4 mr-16 gap-36 hidden sm:flex'>
+                {textsNav.map((textNav, index) => 
+                    <p 
+                        key={index}
+                        className='title-decor text-gray-400 w-44 text-sm leading-5 hidden lg:block'>
+                            {textNav.text}
+                    </p>
+                )}
             </div>
         </div>
     )

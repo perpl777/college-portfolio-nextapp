@@ -1,8 +1,8 @@
 'use client'
 
+
 import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap'
-import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import menu from '@/public/bx-menu 2.svg'
@@ -100,7 +100,7 @@ const Menu = () => {
     
     return (
         <div>
-    { /*-------------- Burger-menu ------------------*/}
+            { /*-------------- Burger-menu ------------------*/}
             <div className='w-6 h-auto'>
                 <Image 
                     src={menu} 
@@ -109,8 +109,7 @@ const Menu = () => {
                     onClick={HandleBurgerClick} 
                 />
             </div>
-
-    {/*-------------- Full nav ------------------*/}
+            {/*-------------- Full nav ------------------*/}
             <div 
                 id="menu" 
                 onMouseEnter={handleMouseEnter}
@@ -126,7 +125,6 @@ const Menu = () => {
                     </Link>
                 </div>
             </div>
-
         </div>
     );
 };

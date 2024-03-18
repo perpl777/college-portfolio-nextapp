@@ -1,9 +1,12 @@
 import Loading from '@/app/loading';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import YearStudent from './student/year-students';
+import NameStudent from './student/name-student';
+import GroupStudent from './student/group-student';
 
 
-interface Student {
+interface StudentTableProps {
     id: number;
     name: string;
     lastname: string;
@@ -13,7 +16,7 @@ interface Student {
 }
 
 
-const StudentsTable = ({ sortedStudents }: { sortedStudents: Student[] }) => {
+const StudentsTable = ({ sortedStudents }: { sortedStudents: StudentTableProps[] }) => {
     return (
         <div className='overflow-x-auto'>
             <table className="table table-lg m-auto">
@@ -26,16 +29,15 @@ const StudentsTable = ({ sortedStudents }: { sortedStudents: Student[] }) => {
                 </thead>
                 <tbody>
                     <Suspense fallback={<Loading />}>
-
                         {sortedStudents.map(student =>
                             <tr key={student.id}>
-                                <td className='border-b border-black'>{student.year}</td>
+                                <td className='border-b border-black'><YearStudent id_student={student.id}/></td>
                                 <td className='border-b border-black'> 
                                     <Link href={`/portfolio/${student.id}`}>
-                                        {`${student.lastname} ${student.name} ${student.surname}`}
+                                        <NameStudent id_student={student.id} type='lastname_name_surname'/>
                                     </Link>
                                 </td>
-                                <td className='border-b border-black'>{student.group}</td>
+                                <td className='border-b border-black'><GroupStudent id_student={student.id}/></td>
                             </tr>
                         )}
                     </Suspense>

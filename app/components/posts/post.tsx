@@ -13,6 +13,7 @@ interface PostProps {
 }   
 
 
+
 const Post:FC<PostProps> = ({title, subtitle, image, link}) => {
 
     const [showFullText, setShowFullText] = useState(false);
@@ -25,7 +26,9 @@ const Post:FC<PostProps> = ({title, subtitle, image, link}) => {
 
     return (
         <div className='flex flex-col gap-4 p-5 w-96 max-[500px]:w-72'>
-            <p className='font-bold text-5xl max-[500px]:text-3xl'>{title}</p>
+            <p className='font-bold text-5xl max-[500px]:text-3xl'>
+                {title}
+            </p>
 
             {image && <img src={image} alt='post' width={396} height={336}/>}
 
@@ -33,18 +36,15 @@ const Post:FC<PostProps> = ({title, subtitle, image, link}) => {
             ? 
                 <div>
                     {showFullText 
-                    ? (
-                        <p className='font-light text-sm opacity-70'>{subtitle}</p>
-                    ) : (
-                        <p className='font-light text-sm opacity-70'>
+                    ? 
+                        (<p className='font-light text-sm opacity-70'>{subtitle}</p>) 
+                    : 
+                        (<p className='font-light text-sm opacity-70'>
                             {subtitle.length > maxLength ? `${subtitle.slice(0, maxLength)}...` : subtitle}
                             {subtitle.length > maxLength && (
-                                <button onClick={toggleText}>
-                                    pаскрыть
-                                </button>
+                                <button onClick={toggleText}> pаскрыть </button>
                             )}
-                        </p>
-                    )}
+                        </p>)}
                 </div>
             :
                 <p className='font-light text-sm opacity-70'>{subtitle}</p>

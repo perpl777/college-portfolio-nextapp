@@ -1,7 +1,7 @@
 'use client'
 import React, { Suspense, useEffect, useState } from 'react'
 import { gsap } from 'gsap'
-import SearchInput from '@/app/components/students-page/search-input'
+import SearchInput from '@/app/components/search-input'
 import StudentsTable from './table'
 import Loading from '@/app/loading'
 import useFilterStudents from '@/app/components/filter/filter'
