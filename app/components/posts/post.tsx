@@ -13,7 +13,6 @@ interface PostProps {
 }   
 
 
-
 const Post:FC<PostProps> = ({title, subtitle, image, link}) => {
 
     const [showFullText, setShowFullText] = useState(false);

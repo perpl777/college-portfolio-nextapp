@@ -44,10 +44,10 @@ export default function Portfolio({params: {id}}: Props) {
     let firstHalf;
     let secondHalf;
 
-    if (filteredPosts.length % 2 == 0 ){ 
+    if (filteredPosts.length % 2 == 0 ) { 
         firstHalf = filteredPosts.slice(0, halfLength); 
         secondHalf = filteredPosts.slice(halfLength) 
-    }else { 
+    } else { 
         firstHalf = filteredPosts.slice(0, halfLength); 
         secondHalf = filteredPosts.slice(halfLength + 1) 
     } 
@@ -60,20 +60,24 @@ export default function Portfolio({params: {id}}: Props) {
                 <StudentCard id_student={id}/>
             </div>
             
-            <div className='flex justify-end py-24 font-light text-xl max-[425px]:w-full max-[425px]:justify-center'>
+            <div className='flex justify-end py-20 font-light text-xl max-[425px]:w-full max-[425px]:justify-center'>
                 <AboutText id_student={id}/>
             </div>
             
             <MenuPosts activeButton={activeButton} setActiveButton={setActiveButton}/>
 
-            <div className='flex justify-between mt-16'> 
-                <div className='flex flex-wrap flex-col px-36'> 
-                    <Posts posts={firstHalf}/>
+            {filteredPosts.length > 0 ? (
+                <div className='flex justify-between mt-16'> 
+                    <div className='flex flex-wrap flex-col px-36'> 
+                        <Posts posts={firstHalf}/>
+                    </div>
+                    <div className='flex flex-wrap flex-col px-36'> 
+                        <Posts posts={secondHalf}/>
+                    </div>
                 </div>
-                <div className='flex flex-wrap flex-col px-36'> 
-                    <Posts posts={secondHalf}/>
-                </div>
-            </div>
+            ) : (
+                <div className='text-center text-zinc-400 text-lg mt-40'>Здесь пока ничего нет</div>
+            )}
 
         </div>
     );

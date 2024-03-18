@@ -166,7 +166,7 @@ const data = {
         },
         {
             'id': 2,
-            'id_student': 1,
+            'id_student': 2,
             'title': 'Заголовок достижения 2',
             'subtitle': 'Описание достижения 2',
             'image': 'https://images.unsplash.com/photo-1631479290037-97d776982ea4?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
