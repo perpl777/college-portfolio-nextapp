@@ -22,7 +22,7 @@ const StudentsPage = () => {
     const [sortedStudents, setSortedStudents] = useState<Student[]>([]);
 
     useEffect(() => {
-        let filteredStudents = data.student;
+        let filteredStudents = data.students;
         if (searchQuery) {
             filteredStudents = filteredStudents.filter((student) =>
                 student.lastname.toLowerCase().startsWith(searchQuery.toLowerCase())

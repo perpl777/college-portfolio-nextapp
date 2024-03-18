@@ -1,35 +1,30 @@
-'use client'
-import React, { useState } from 'react'
+import React from 'react'
 
-
-const MenuPosts = () => {
-
+const MenuPosts = ({activeButton, setActiveButton}: any) => {
     const buttons = [
-        {label: "Проекты"},
-        {label: "Достижения"},
-        {label: "Курсы"},
-        {label: "Стажировки"},
-        {label: "Спорт"},
-        {label: "Волонтерство"}
+        {label: "Проекты", index: 0},
+        {label: "Достижения", index: 1},
+        {label: "Курсы", index: 2},
+        {label: "Стажировки", index: 3},
+        {label: "Спорт", index: 4},
+        {label: "Волонтерство", index: 5}
     ]
 
     const mobileStyle = 'max-[425px]:py-2 max-[425px]:underline-offset-4'
 
-    const [activeButton, setActiveButton] = useState(0);
-
-    const handleButtonClick = (index) => {
+    const handleButtonClick = (index: any) => {
         setActiveButton(index === activeButton ? null : index);
     };
 
     return (
         <div className='flex flex-row justify-evenly max-md:flex-none max-md:grid max-md:grid-cols-3 max-[425px]:grid-cols-1 '>
-            {buttons.map((button, index) => 
+            {buttons.map((button, index: number) => 
                 <button 
                     key={button.label} 
-                    className = {`text-center py-6 text-base text-black underline-offset-[30px] ${index === activeButton ? 'underline font-medium' : ''} ${mobileStyle}`}
+                    className={`text-center py-6 text-base text-black underline-offset-[30px] transition-all ${index === activeButton ? 'underline font-medium' : ''} ${mobileStyle}`}
                     onClick={() => handleButtonClick(index)}
                 >
-                        <span> {button.label} </span>
+                    <span>{button.label}</span>
                 </button>
             )}
         </div>
