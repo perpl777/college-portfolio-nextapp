@@ -30,7 +30,7 @@ const StudentsPage = () => {
         }
     ]
   //-----------search----------
-    const sortedStudents = useFilterStudents(students, searchQuery);
+    // const sortedStudents = useFilterStudents(students, searchQuery);
 
 
   //---------anim the appearance of elements----------
@@ -65,9 +65,9 @@ const StudentsPage = () => {
         </div>
 
         <div className='mt-7'>
-            <Suspense fallback={<Loading />}>
+            {/* <Suspense fallback={<Loading />}>
                 <StudentsTable sortedStudents={sortedStudents}/>
-            </Suspense>
+            </Suspense> */}
         </div>
 
     </section>
