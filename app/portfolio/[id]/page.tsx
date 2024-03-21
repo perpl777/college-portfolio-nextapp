@@ -39,18 +39,14 @@ export default function Portfolio({params: {id}}: Props) {
             filteredPosts = data.works.filter((post) => post?.id_student == id);
     }
 
-    const halfLength = Math.ceil(filteredPosts.length / 2); 
+    const halfLength = Math.ceil(filteredPosts.length / 2);
 
     let firstHalf;
     let secondHalf;
 
-    if (filteredPosts.length % 2 == 0 ) { 
-        firstHalf = filteredPosts.slice(0, halfLength); 
-        secondHalf = filteredPosts.slice(halfLength) 
-    } else { 
-        firstHalf = filteredPosts.slice(0, halfLength); 
-        secondHalf = filteredPosts.slice(halfLength + 1) 
-    } 
+    firstHalf = filteredPosts.slice(0, halfLength);
+    secondHalf = filteredPosts.slice(halfLength);
+    
 
     return (
         <div className="flex flex-col">
@@ -59,19 +55,19 @@ export default function Portfolio({params: {id}}: Props) {
             <div className='pt-20'>
                 <StudentCard id_student={id}/>
             </div>
-            
-            <div className='flex justify-end py-20 font-light text-xl max-[425px]:w-full max-[425px]:justify-center'>
+
+            <div className='flex justify-end py-20 font-light text-xl max-[480px]:justify-center max-[480px]:text-base'>
                 <AboutText id_student={id}/>
             </div>
-            
+
             <MenuPosts activeButton={activeButton} setActiveButton={setActiveButton}/>
 
             {filteredPosts.length > 0 ? (
-                <div className='flex justify-between mt-16'> 
-                    <div className='flex flex-wrap flex-col px-36'> 
+                <div className='flex justify-between mt-16 max-[1100px]:flex-col'>
+                    <div className='flex flex-wrap flex-col px-24 gap-6  max-[700px]:px-0'>
                         <Posts posts={firstHalf}/>
                     </div>
-                    <div className='flex flex-wrap flex-col px-36'> 
+                    <div className='flex flex-wrap flex-col px-24 gap-6  max-[700px]:px-0'>
                         <Posts posts={secondHalf}/>
                     </div>
                 </div>

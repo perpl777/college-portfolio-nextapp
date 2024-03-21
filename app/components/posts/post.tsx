@@ -24,12 +24,16 @@ const Post:FC<PostProps> = ({title, subtitle, image, link}) => {
 
 
     return (
-        <div className='flex flex-col gap-4 p-5 w-96 max-[500px]:w-72'>
-            <p className='font-bold text-5xl max-[500px]:text-3xl'>
+        <div className='flex flex-col gap-4 p-5'>
+            <p className='font-bold text-5xl max-[500px]:text-3xl tracking-wide pb-3'>
                 {title}
             </p>
+            {image && 
+                <div className='rounded-sm overflow-hidden'>
+                    <img src={image} alt='post' width={396} height={336}/>
+                </div>
 
-            {image && <img src={image} alt='post' width={396} height={336}/>}
+            }
 
             {image 
             ? 
@@ -39,7 +43,7 @@ const Post:FC<PostProps> = ({title, subtitle, image, link}) => {
                         (<p className='font-light text-sm opacity-70'>{subtitle}</p>) 
                     : 
                         (<p className='font-light text-sm opacity-70'>
-                            {subtitle.length > maxLength ? `${subtitle.slice(0, maxLength)}...` : subtitle}
+                            {subtitle.length > maxLength ? `${subtitle.slice(0, maxLength)}... ` : subtitle}
                             {subtitle.length > maxLength && (
                                 <button onClick={toggleText}> pаскрыть </button>
                             )}
@@ -50,7 +54,7 @@ const Post:FC<PostProps> = ({title, subtitle, image, link}) => {
             }
 
             <Link href={link}>
-                <button className='w-52 h-8 bg-gray-800 text-white font-medium text-sm uppercase'>скачать</button>
+                <button className='w-52 h-8 rounded-sm bg-gray-800 text-white font-medium text-sm uppercase tracking-wider'>скачать</button>
             </Link>
         </div>
     )

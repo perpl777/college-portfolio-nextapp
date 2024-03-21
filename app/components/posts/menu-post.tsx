@@ -20,7 +20,7 @@ const MenuPosts = ({activeButton, setActiveButton}: any) => {
     
     return (
         <div className='flex flex-row'>
-            <div className='grow border-t border-l border-r border-black'>
+            <div className='grow border-t border-l border-r border-black rounded-sm'>
                 <div className='flex flex-row justify-evenly max-md:flex-none max-md:grid max-md:grid-cols-3 max-[425px]:grid-cols-1 '>
                     {buttons.map((button, index) => 
                         <button 

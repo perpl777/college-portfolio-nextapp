@@ -13,6 +13,8 @@ interface Post {
 
 
 const Posts: React.FC<{ posts: Post[] }> = ({posts}) => {
+    
+    
     return (
         <>  
             {posts.map((post, index) => (
