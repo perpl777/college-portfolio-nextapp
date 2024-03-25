@@ -19,6 +19,7 @@ export default function Portfolio({params: {id}}: Props) {
     const [activeButton, setActiveButton] = useState(0);
     let filteredPosts = [];
 
+    // переключатель меню постов
     switch (activeButton) {
         case 1:
             filteredPosts = data.achievements.filter((post) => post?.id_student == id);
@@ -39,12 +40,6 @@ export default function Portfolio({params: {id}}: Props) {
             filteredPosts = data.works.filter((post) => post?.id_student == id);
     }
 
-    const styles = {
-        first: 'margin-right: -1px',
-        second: 'margin-left: -1px'
-    }
-    
-
     return (
         <div className="flex flex-col">
             <Header />
@@ -59,6 +54,7 @@ export default function Portfolio({params: {id}}: Props) {
 
             <MenuPosts activeButton={activeButton} setActiveButton={setActiveButton}/>
 
+            {/*выводим посты */}
             {filteredPosts.length > 0 ? (
                 <div className='grid grid-cols-2 max-lg:grid-cols-1'>
                     {filteredPosts.map((post, index) => (
@@ -76,8 +72,8 @@ export default function Portfolio({params: {id}}: Props) {
                         )
                     ))}
                 </div>
-            ) : (
-                <div className='text-center text-zinc-400 text-lg mt-40'>Здесь пока ничего нет</div>
+            ) : ( /*если постов нет*/
+                <div className='text-center text-zinc-400 text-lg my-40'>Здесь пока ничего нет</div>
             )}
         </div>
     );

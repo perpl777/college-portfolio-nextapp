@@ -1,6 +1,9 @@
 import React from 'react';
 import data from '@/app/data';
 
+
+
+/*выводим описание студента */
 const AboutText =({ id_student }: any) => {
 
     const student = data.students.find((stud) => stud.id == id_student);

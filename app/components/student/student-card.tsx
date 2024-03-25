@@ -10,29 +10,29 @@ import TechnologiesStudent from '@/app/components/student/technologies-student';
 const StudentCard = ({id_student}: any) => {
     return (
         <div className='flex max-lg:inline-block'>
-            <ImageStudent id_student={id_student}/>
+            <ImageStudent id_student={id_student}/> {/*выводим фото студента */}
 
             <div className="bg-gray-50 flex flex-col w-full justify-between py-9 px-5">
                 <div className='flex justify-end gap-2'>
-                    <ContactsStudent id_student={id_student}/>
+                    <ContactsStudent id_student={id_student}/> {/*выводим контакты студента */}
                 </div>
 
                 <div>
                     <h1 className='titleName font-medium text-6xl max-sm:text-4xl'>
-                        <NameStudent id_student={id_student} type='name_lastname'/>
+                        <NameStudent id_student={id_student} type='name_lastname'/> {/*выводим имя студента */}
                     </h1>
                     <table className="table table-sm mt-12 max-sm:table-xs">
                         <tbody> 
                             <tr className='border-b border-black'> 
-                                <th className="p-0 text-xs font-normal text-gray-500 uppercase">Специальность</th>
+                                <th className="p-0 text-xs font-normal text-gray-500 uppercase">Специальность</th> {/*выводим Специальность студента */}
                                 <th className="pl-20 text-base font-normal"> <GroupStudent id_student={id_student}/> </th>
                             </tr> 
                             <tr className='border-b border-black'> 
-                                <th className="p-0 text-xs font-normal text-gray-500 uppercase">Курс</th>
+                                <th className="p-0 text-xs font-normal text-gray-500 uppercase">Курс</th> {/*выводим Курс студента */}
                                 <th className="pl-20 text-base font-normal"> <YearStudent id_student={id_student}/> </th>
                             </tr> 
                             <tr className='border-b border-black'> 
-                                <th className="p-0 text-xs font-normal text-gray-500 uppercase">Технологии</th>
+                                <th className="p-0 text-xs font-normal text-gray-500 uppercase">Технологии</th> {/*выводим Технологии студента */}
                                 <th className="pl-20 text-base font-normal"> <TechnologiesStudent id_student={id_student}/> </th>
                             </tr> 
                         </tbody> 

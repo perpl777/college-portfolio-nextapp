@@ -24,6 +24,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortedStudents, setSortedStudents] = useState<StudentTableProps[]>([]);
 
+  // фильтр и поиск студентов
   useEffect(() => {
       let filteredStudents = data.students;
       if (searchQuery) {

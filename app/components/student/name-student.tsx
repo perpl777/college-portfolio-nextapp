@@ -3,12 +3,14 @@ import { FC } from 'react'
 import data from '@/app/data'
 
 
+/*выводим либо имя фамилие либо ФИО */
 type type = 'name_lastname' | 'lastname_name_surname'
 interface NameStudentProps {
     id_student: number;
     type?: type
 }
 
+/*выводим имя студента */
 const NameStudent:FC<NameStudentProps> = ({id_student, type}) => {
 
     const student = data.students.find((stud) => stud.id == id_student);

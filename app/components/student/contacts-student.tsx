@@ -8,6 +8,7 @@ import Behance from '@/public/contacts-icons/bxl-behance 2.svg';
 
 
 
+/*выводим контакты студента */
 const ContactsStudent = ({id_student}: any) => {
 
     const student = data.students.find((stud) => stud.id == id_student);

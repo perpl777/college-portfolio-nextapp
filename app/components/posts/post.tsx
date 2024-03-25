@@ -15,11 +15,17 @@ interface PostProps {
 const Post:FC<PostProps> = ({title, subtitle, image}) => {
 
 
+    /*стили для адаптива */
+    const stylesAdaptive = {
+        block: 'max-[380px]:flex-col max-[380px]:items-start max-[380px]:gap-6',
+        title: 'max-[540px]:text-4xl max-[425px]:text-3xl max-[372px]:text-2xl'
+    }
+
     return (
         <div className='flex flex-col-reverse p-14 h-full border-black border max-[540px]:p-8'>
-            <div className='flex justify-between items-end max-[380px]:flex-col max-[380px]:items-start max-[380px]:gap-6'>
+            <div className={`flex justify-between items-end ${stylesAdaptive.block}`}>
                 <div className='w-9/12 max-[380px]:w-full'>
-                    <p className='font-bold text-5xl tracking-wide pt-10 max-[540px]:text-4xl max-[425px]:text-3xl max-[372px]:text-2xl'>
+                    <p className={`font-bold text-5xl tracking-wide pt-10 ${stylesAdaptive.title}`}>
                         {title}
                     </p>
                     <p className='font-light text-sm opacity-70 pt-7'>{subtitle}</p>
