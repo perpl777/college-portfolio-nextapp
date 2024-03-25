@@ -5,7 +5,7 @@ import data from '@/app/data';
 import Header from '@/app/components/header';
 import AboutText from '../../components/student/about-text';
 import MenuPosts from '@/app/components/posts/menu-post';
-import Posts from '@/app/components/posts/posts';
+import Post from "../../components/posts/post"
 import StudentCard from '@/app/components/student/student-card';
 
 
@@ -39,20 +39,17 @@ export default function Portfolio({params: {id}}: Props) {
             filteredPosts = data.works.filter((post) => post?.id_student == id);
     }
 
-    const halfLength = Math.ceil(filteredPosts.length / 2);
-
-    let firstHalf;
-    let secondHalf;
-
-    firstHalf = filteredPosts.slice(0, halfLength);
-    secondHalf = filteredPosts.slice(halfLength);
+    const styles = {
+        first: 'margin-right: -1px',
+        second: 'margin-left: -1px'
+    }
     
 
     return (
         <div className="flex flex-col">
             <Header />
 
-            <div className='pt-20'>
+            <div className='pt-20 max-lg:m-auto'>
                 <StudentCard id_student={id}/>
             </div>
 
@@ -63,18 +60,25 @@ export default function Portfolio({params: {id}}: Props) {
             <MenuPosts activeButton={activeButton} setActiveButton={setActiveButton}/>
 
             {filteredPosts.length > 0 ? (
-                <div className='flex justify-between mt-16 max-[1100px]:flex-col'>
-                    <div className='flex flex-wrap flex-col px-24 gap-6  max-[700px]:px-0'>
-                        <Posts posts={firstHalf}/>
-                    </div>
-                    <div className='flex flex-wrap flex-col px-24 gap-6  max-[700px]:px-0'>
-                        <Posts posts={secondHalf}/>
-                    </div>
+                <div className='grid grid-cols-2 max-lg:grid-cols-1'>
+                    {filteredPosts.map((post, index) => (
+                        post && (
+                            <div 
+                                key={index} 
+                                style={{marginRight: index % 2 === 0 ? '-1px' : '0', marginTop: '-1px'}}>
+                                    <Post
+                                        title={post.title}
+                                        subtitle={post.subtitle}
+                                        image={post.image}
+                                        link={post.link}
+                                    />
+                            </div>
+                        )
+                    ))}
                 </div>
             ) : (
                 <div className='text-center text-zinc-400 text-lg mt-40'>Здесь пока ничего нет</div>
             )}
-
         </div>
     );
 }

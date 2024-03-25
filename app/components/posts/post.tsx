@@ -1,9 +1,8 @@
-'use client'
 import React from 'react'
 import { FC } from "react"
 import Link from 'next/link'
-import { useState } from 'react'
-
+import Image from 'next/image'
+import PdfIcon from "@/public/pdf.svg"
 
 interface PostProps {
 	title: string
@@ -13,49 +12,27 @@ interface PostProps {
 }   
 
 
-const Post:FC<PostProps> = ({title, subtitle, image, link}) => {
-
-    const [showFullText, setShowFullText] = useState(false);
-    const maxLength = 60; // Максимальная длина текста до сокрытия
-
-    const toggleText = () => {
-        setShowFullText(!showFullText);
-    };
+const Post:FC<PostProps> = ({title, subtitle, image}) => {
 
 
     return (
-        <div className='flex flex-col gap-4 p-5'>
-            <p className='font-bold text-5xl max-[500px]:text-3xl tracking-wide pb-3'>
-                {title}
-            </p>
+        <div className='flex flex-col-reverse p-14 h-full border-black border max-[540px]:p-8'>
+            <div className='flex justify-between items-end max-[380px]:flex-col max-[380px]:items-start max-[380px]:gap-6'>
+                <div className='w-9/12 max-[380px]:w-full'>
+                    <p className='font-bold text-5xl tracking-wide pt-10 max-[540px]:text-4xl max-[425px]:text-3xl max-[372px]:text-2xl'>
+                        {title}
+                    </p>
+                    <p className='font-light text-sm opacity-70 pt-7'>{subtitle}</p>
+                </div>
+
+                <Link href='#'><Image src={PdfIcon} alt='pdf'></Image></Link>
+            </div>
+
             {image && 
-                <div className='rounded-sm overflow-hidden'>
-                    <img src={image} alt='post' width={396} height={336}/>
+                <div className='rounded-sm'>
+                    <img src={image} alt='post' max-width={567} max-height={385}/>
                 </div>
-
             }
-
-            {image 
-            ? 
-                <div>
-                    {showFullText 
-                    ? 
-                        (<p className='font-light text-sm opacity-70'>{subtitle}</p>) 
-                    : 
-                        (<p className='font-light text-sm opacity-70'>
-                            {subtitle.length > maxLength ? `${subtitle.slice(0, maxLength)}... ` : subtitle}
-                            {subtitle.length > maxLength && (
-                                <button onClick={toggleText}> pаскрыть </button>
-                            )}
-                        </p>)}
-                </div>
-            :
-                <p className='font-light text-sm opacity-70'>{subtitle}</p>
-            }
-
-            <Link href={link}>
-                <button className='w-52 h-8 rounded-sm bg-gray-800 text-white font-medium text-sm uppercase tracking-wider'>скачать</button>
-            </Link>
         </div>
     )
 }

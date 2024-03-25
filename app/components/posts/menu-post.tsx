@@ -2,6 +2,9 @@ import React from 'react'
 
 
 const MenuPosts = ({activeButton, setActiveButton}: any) => {
+
+    const mobileStyle = 'max-[425px]:py-2 max-[425px]:underline-offset-4'
+
     const buttons = [
         {label: "Проекты", index: 0},
         {label: "Достижения", index: 1},
@@ -15,25 +18,18 @@ const MenuPosts = ({activeButton, setActiveButton}: any) => {
         setActiveButton(buttonIndex === activeButton ? null : buttonIndex);
     };
 
-
-    const mobileStyle = 'max-[425px]:py-2 max-[425px]:underline-offset-4'
     
     return (
-        <div className='flex flex-row'>
-            <div className='grow border-t border-l border-r border-black rounded-sm'>
-                <div className='flex flex-row justify-evenly max-md:flex-none max-md:grid max-md:grid-cols-3 max-[425px]:grid-cols-1 '>
-                    {buttons.map((button, index) => 
-                        <button 
-                            key={button.label} 
-                            className={`text-center py-6 text-base text-black underline-offset-[30px] ${index === activeButton ? 'underline font-medium' : ''} ${mobileStyle}`}
-                            onClick={() => handleButtonClick(button.index)}
-                        >
-                            <span>{button.label}</span>
-                        </button>
-                    )}
-                </div>
-            </div>
-            <div className='shrink basis-1/4 border-b border-black max-md:flex-none'></div>
+        <div className='flex pl-14 py-7 border border-black gap-20 max-lg:grid max-lg:grid-cols-3 max-lg:pl-0 max-lg:gap-10 max-[540px]:grid-cols-2 max-[540px]:py-6 max-[407px]:grid-cols-1 max-[407px]:gap-3'>
+            {buttons.map((button, index) => 
+                <button 
+                    key={button.label} 
+                    className = {`text-center text-base text-black underline-offset-[15px] ${index === activeButton ? 'underline font-medium' : ''} ${mobileStyle}`}
+                    onClick={() => handleButtonClick(button.index)}
+                >
+                    <span>{button.label}</span>
+                </button>
+            )}
         </div>
     )
     
