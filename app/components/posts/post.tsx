@@ -31,7 +31,7 @@ const Post:FC<PostProps> = ({title, subtitle, image}) => {
                     <p className='font-light text-sm opacity-70 pt-7'>{subtitle}</p>
                 </div>
 
-                <Link href='#'><Image src={PdfIcon} alt='pdf'></Image></Link>
+                <Link href='#'><Image src={PdfIcon} alt='pdf' width={30} height={30}></Image></Link>
             </div>
 
             {image && 
