@@ -11,7 +11,7 @@ const ImageStudent = ({id_student}: any) => {
     const student = data.students.find((stud) => stud.id == id_student);
 
     return (
-        <Image src={ImgStudent} alt="student"/>
+        <Image src={ImgStudent} alt="student" width={602} height={566}/>
     )
 }
 

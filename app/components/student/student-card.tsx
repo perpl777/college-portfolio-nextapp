@@ -9,10 +9,10 @@ import TechnologiesStudent from '@/app/components/student/technologies-student';
 
 const StudentCard = ({id_student}: any) => {
     return (
-        <div className='flex max-lg:inline-block'>
+        <div className='max-lg:inline-block flex'>
             <ImageStudent id_student={id_student}/> {/*выводим фото студента */}
 
-            <div className="bg-gray-50 flex flex-col w-full justify-between py-9 px-5">
+            <div className="bg-gray-50 flex flex-col flex-auto justify-between py-9 px-5">
                 <div className='flex justify-end gap-2'>
                     <ContactsStudent id_student={id_student}/> {/*выводим контакты студента */}
                 </div>
